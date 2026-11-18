@@ -47,7 +47,7 @@ const pm = new THREE.PMREMGenerator(R); scene.environment = pm.fromEquirectangul
 scene.background = new THREE.Color(0x06040d); scene.fog = new THREE.Fog(0x0b0618, 18, 70);
 const glowTex = canvasTex(256, 256, (g, w, h) => { const gr = g.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, w / 2); gr.addColorStop(0, 'rgba(255,255,255,1)'); gr.addColorStop(.25, 'rgba(255,255,255,.5)'); gr.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = gr; g.fillRect(0, 0, w, h); });
 const glow = (col, s, x, y, z, parent = scene, o = .9) => { const m = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, color: col, transparent: true, opacity: o, depthWrite: false, blending: THREE.AdditiveBlending, fog: false })); m.scale.set(s, s, 1); m.position.set(x, y, z); m.layers.set(1); parent.add(m); return m; };
-const neonMat = c => new THREE.MeshBasicMaterial({ color: c, fog: false });
+const NEONS = []; const neonMat = (c, order = 9) => { const m = new THREE.MeshBasicMaterial({ color: c, fog: false }); NEONS.push({ m, c: new THREE.Color(c), order, k: Math.random() }); return m; };
 const RX = 16, ZW = -14, ZB = 16, CEIL = 8.6;
 // ---- the room: glossy floor, dark walls, a ceiling of neon lines
 const floorTex = canvasTex(512, 512, (g, w, h) => { g.fillStyle = '#1a1128'; g.fillRect(0, 0, w, h); g.strokeStyle = 'rgba(0,0,0,.45)'; g.lineWidth = 3; for (let x = 0; x <= w; x += 128) { g.beginPath(); g.moveTo(x, 0); g.lineTo(x, h); g.stroke(); g.beginPath(); g.moveTo(0, x); g.lineTo(w, x); g.stroke(); }
@@ -60,10 +60,10 @@ mesh(new THREE.PlaneGeometry(RX * 2, CEIL), WALL2, 0, CEIL / 2, ZB, scene, false
 mesh(new THREE.PlaneGeometry(RX * 2 + 4, 30), toon(0x0a0614), 0, CEIL, 0, scene, false).rotation.x = Math.PI / 2;
 mesh(new THREE.PlaneGeometry(RX * 2 + 6, CEIL), WALL2, 0, CEIL / 2, ZW - 1.2, scene, false);
 // neon lines along the ceiling, all running at the wall
-[-10.5, -6.5, -2.2, 2.2, 6.5, 10.5].forEach((x, i) => { refl(mesh(new THREE.BoxGeometry(.1, .06, ZB - ZW - 4), neonMat(i % 2 ? 0x19e3ff : 0xff3fa4), x, CEIL - .1, (ZB + ZW) / 2 + 1, scene, false)); });
+[-10.5, -6.5, -2.2, 2.2, 6.5, 10.5].forEach((x, i) => { refl(mesh(new THREE.BoxGeometry(.1, .06, ZB - ZW - 4), neonMat(i % 2 ? 0x19e3ff : 0xff3fa4, [0, 2, 4, 5, 3, 1][i]), x, CEIL - .1, (ZB + ZW) / 2 + 1, scene, false)); });
 for (let z = ZW + 4; z < ZB; z += 5) mesh(new THREE.BoxGeometry(RX * 2, .35, .35), toon(0x241838), 0, CEIL - .3, z, scene);
 // the left wall: vertical neon slats
-for (let z = ZW + 3; z < ZB - 2; z += 3.2) { refl(mesh(new THREE.BoxGeometry(.08, 5.2, .08), neonMat(0x9b5cff), -RX + .06, 3.6, z, scene, false)); mesh(new THREE.BoxGeometry(.3, CEIL, .6), toon(0x261a3c), -RX + .15, CEIL / 2, z + 1.6, scene); }
+for (let z = ZW + 3; z < ZB - 2; z += 3.2) { refl(mesh(new THREE.BoxGeometry(.08, 5.2, .08), neonMat(0x9b5cff, 6), -RX + .06, 3.6, z, scene, false)); mesh(new THREE.BoxGeometry(.3, CEIL, .6), toon(0x261a3c), -RX + .15, CEIL / 2, z + 1.6, scene); }
 // the right wall: tall windows onto Vice City at night
 const cityTex = canvasTex(2048, 512, (g, w, h) => { const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, '#0a0820'); gr.addColorStop(.55, '#3a1458'); gr.addColorStop(.72, '#a0286e'); gr.addColorStop(.74, '#160a24'); gr.addColorStop(1, '#0b0716'); g.fillStyle = gr; g.fillRect(0, 0, w, h);
   for (let i = 0; i < 140; i++) { g.fillStyle = `rgba(255,255,255,${.2 + hsh(i, 5) * .6})`; g.fillRect(hsh(i, 6) * w, hsh(i, 7) * h * .45, 2, 2); }
@@ -90,40 +90,40 @@ const grain = (g, w, h) => { g.fillStyle = 'rgba(0,0,0,.26)'; for (let y = 0; y 
 const ct = v => v == null ? '—' : v * 100 < 1 ? '<1¢' : v * 100 > 99 ? '>99¢' : Math.round(v * 100) + '¢';
 const fit = (g, s, max) => { while (g.measureText(s).width > max && s.length > 4) s = s.slice(0, -2).trim() + '…'; return s; };
 function wrapLines(g, s, max) { const out = []; let line = ''; for (const w of s.split(' ')) { if (g.measureText(line + w).width > max && line) { out.push(line.trim()); line = ''; } line += w + ' '; } if (line.trim()) out.push(line.trim()); return out; }
-function drawWall() { const { g, c } = wall, w = c.width, h = c.height; g.fillStyle = '#04020a'; g.fillRect(0, 0, w, h); g.textBaseline = 'middle';
+function drawWall(rv = 1) { const { g, c } = wall, w = c.width, h = c.height; const NR = Math.ceil(7 * rv); g.fillStyle = '#04020a'; g.fillRect(0, 0, w, h); g.textBaseline = 'middle';
   const panel = (x, pw, title, col) => { g.fillStyle = 'rgba(255,255,255,.025)'; g.fillRect(x, 24, pw, h - 48); g.fillStyle = col; g.fillRect(x, 24, pw, 64); g.fillStyle = '#04020a'; g.font = '800 34px JB'; g.fillText(title, x + 24, 57); };
   // left: props tonight, with the crowd's lean
   const LX = 40, LW = 1140; panel(LX, LW, 'PROPS TONIGHT · FREE CALLS', '#19e3ff'); g.textAlign = 'right'; g.fillText('CROWD', LX + LW - 24, 57); g.textAlign = 'left';
-  const P = FEED.props.length ? FEED.props.slice(0, 7) : []; const rh = (h - 150) / 7;
+  const P = FEED.props.length ? FEED.props.slice(0, Math.min(7, NR)) : []; const rh = (h - 150) / 7;
   P.forEach((r, i) => { const y = 88 + rh * i + rh / 2 + 8; g.font = '700 34px JB'; g.fillStyle = '#f2eaff'; g.fillText(fit(g, String(r.q).toUpperCase(), LW - 330), LX + 24, y); g.textAlign = 'right'; g.font = '800 38px JB'; g.fillStyle = '#ffc65a'; g.fillText(r.pct == null ? '—' : `${r.pct}% ${r.pick}`, LX + LW - 24, y); g.textAlign = 'left';
     g.fillStyle = 'rgba(255,255,255,.06)'; g.fillRect(LX + 24, y + 26, LW - 48, 4); g.fillStyle = '#ffc65a'; g.fillRect(LX + 24, y + 26, (LW - 48) * (r.pct || 0) / 100, 4); });
-  if (!P.length) { g.font = '700 34px JB'; g.fillStyle = 'rgba(255,255,255,.45)'; g.fillText('LOADING THE PROPS…', LX + 24, h / 2); }
+  if (!P.length && rv >= 1) { g.font = '700 34px JB'; g.fillStyle = 'rgba(255,255,255,.45)'; g.fillText('LOADING THE PROPS…', LX + 24, h / 2); }
   // right: real money
   const RX0 = w - 40 - 1140; panel(RX0, 1140, 'REAL MONEY · POLYMARKET × JUPITER', '#ff3fa4'); g.textAlign = 'right'; g.fillText('YES    NO', RX0 + 1140 - 24, 57); g.textAlign = 'left';
-  const Rl = FEED.real.slice(0, 7);
+  const RlAll = FEED.real.slice(0, 7), Rl = RlAll.slice(0, NR);
   Rl.forEach((r, i) => { const y = 88 + rh * i + rh / 2 + 8; g.font = '700 34px JB'; g.fillStyle = '#f2eaff'; g.fillText(fit(g, String(r.q).toUpperCase(), 1140 - 400), RX0 + 24, y); g.textAlign = 'right'; g.font = '800 38px JB';
     g.fillStyle = '#2fe0a8'; g.fillText(ct(r.yes), RX0 + 1140 - 190, y); g.fillStyle = '#ff5f98'; g.fillText(ct(r.no), RX0 + 1140 - 24, y); g.textAlign = 'left'; });
-  if (!Rl.length) { g.font = '700 34px JB'; g.fillStyle = 'rgba(255,255,255,.45)'; g.fillText('LOADING THE MARKETS…', RX0 + 24, h / 2); }
+  if (!Rl.length && rv >= 1) { g.font = '700 34px JB'; g.fillStyle = 'rgba(255,255,255,.45)'; g.fillText('LOADING THE MARKETS…', RX0 + 24, h / 2); }
   // centre: the featured market, huge
-  const CX = LX + LW + 60, CW = RX0 - 60 - CX, f = Rl.length ? Rl[FEAT % Rl.length] : null; g.fillStyle = 'rgba(255,255,255,.03)'; g.fillRect(CX, 24, CW, h - 48);
+  const CX = LX + LW + 60, CW = RX0 - 60 - CX, f = rv > .55 && RlAll.length ? RlAll[FEAT % RlAll.length] : null; g.fillStyle = 'rgba(255,255,255,.03)'; g.fillRect(CX, 24, CW, h - 48);
   g.textAlign = 'center'; g.font = '800 34px JB'; g.fillStyle = '#ffc65a'; g.fillText('GTA VI · LIVE ODDZ', CX + CW / 2, 80);
   if (f) { g.font = '900 78px RB'; g.fillStyle = '#fff6f2'; const L = wrapLines(g, f.q, CW - 120).slice(0, 2); L.forEach((s, i) => g.fillText(s, CX + CW / 2, 190 + i * 88));
     const by = L.length > 1 ? 470 : 420, bw = (CW - 180) / 2;
     [[f.yes, 'YES', '#2fe0a8', 'rgba(47,224,168,.14)'], [f.no, 'NO', '#ff5f98', 'rgba(255,95,152,.13)']].forEach(([v, lab, col, bg], i) => { const x = CX + 60 + i * (bw + 60); g.fillStyle = bg; g.fillRect(x, by - 110, bw, 220); g.strokeStyle = col; g.lineWidth = 4; g.strokeRect(x, by - 110, bw, 220);
       g.fillStyle = col; g.font = '800 40px JB'; g.fillText(lab, x + bw / 2, by - 62); g.font = '900 120px RB'; g.fillText(ct(v), x + bw / 2, by + 30); }); }
-  else { g.font = '900 78px RB'; g.fillStyle = 'rgba(255,255,255,.5)'; g.fillText('THE BOARD IS LOADING', CX + CW / 2, h / 2); }
+  else if (rv >= 1) { g.font = '900 78px RB'; g.fillStyle = 'rgba(255,255,255,.5)'; g.fillText('THE BOARD IS LOADING', CX + CW / 2, h / 2); }
   g.textAlign = 'left'; grain(g, w, h); wall.t.needsUpdate = true; }
 function drawTicker() { const { g, c } = tick; g.fillStyle = '#04020a'; g.fillRect(0, 0, c.width, c.height); g.font = '800 50px JB'; g.textBaseline = 'middle';
   const items = [...FEED.real.map(r => [r.q.toUpperCase(), r.yes]), ...FEED.props.map(r => [r.q.toUpperCase(), null, r.pct, r.pick])]; if (!items.length) items.push(['THE ODDZ ON EVERYTHING IN GTA VI', null]); let x = 20, i = 0;
   while (x < c.width) { const [q, y, pc, pk] = items[i % items.length]; g.fillStyle = '#ff3fa4'; g.fillText('●', x, 50); x += 52; g.fillStyle = '#fff2e8'; g.fillText(q, x, 50); x += g.measureText(q).width + 22;
     const s = y != null ? 'YES ' + ct(y) : pc != null ? pc + '% ' + pk : ''; if (s) { g.fillStyle = y != null ? '#2fe0a8' : '#ffc65a'; g.fillText(s, x, 50); x += g.measureText(s).width + 70; } else x += 50; i++; }
   grain(g, c.width, c.height); tick.t.needsUpdate = true; }
-addEventListener('oddz:feed', e => { FEED = { real: e.detail.real || FEED.real, props: e.detail.props || FEED.props }; drawWall(); drawTicker(); });
+let WALLRV = 1; addEventListener('oddz:feed', e => { FEED = { real: e.detail.real || FEED.real, props: e.detail.props || FEED.props }; drawWall(WALLRV); drawTicker(); });
 drawWall(); drawTicker();
 // ---- the betting counter under the wall: windows, little screens, a neon edge
 const counter = new THREE.Group(); scene.add(counter);
 { const CZ = ZW + 3.2; mesh(new RoundedBoxGeometry(22, 1.15, 1.3, 3, .08), toon(0x221634), 0, .58, CZ, counter); mesh(new RoundedBoxGeometry(22.4, .1, 1.6, 2, .04), toon(0x3a2a52), 0, 1.2, CZ, counter);
-  refl(mesh(new THREE.BoxGeometry(22, .05, .05), neonMat(0xff3fa4), 0, 1.14, CZ + .67, counter, false)); refl(mesh(new THREE.BoxGeometry(22, .04, .04), neonMat(0x19e3ff), 0, .1, CZ + .67, counter, false));
+  refl(mesh(new THREE.BoxGeometry(22, .05, .05), neonMat(0xff3fa4, 7), 0, 1.14, CZ + .67, counter, false)); refl(mesh(new THREE.BoxGeometry(22, .04, .04), neonMat(0x19e3ff, 7), 0, .1, CZ + .67, counter, false));
   const scr = canvasTex(256, 160, (g, w, h) => { g.fillStyle = '#07040e'; g.fillRect(0, 0, w, h); g.fillStyle = '#19e3ff'; g.fillRect(0, 0, w, 26); g.fillStyle = '#07040e'; g.font = '800 18px JB'; g.fillText('GTA VI · ODDZ', 10, 18); g.font = '700 16px JB';
     for (let i = 0; i < 5; i++) { g.fillStyle = '#e8e0ff'; g.fillRect(10, 40 + i * 23, 120 + (i * 37 % 60), 8); g.fillStyle = i % 2 ? '#2fe0a8' : '#ff5f98'; g.fillRect(200, 40 + i * 23, 40, 8); } });
   for (let i = 0; i < 9; i++) { const x = -9.6 + i * 2.4; const s = mesh(new THREE.PlaneGeometry(.7, .44), new THREE.MeshBasicMaterial({ map: scr, fog: false }), x, 1.48, CZ - .1, counter, false); s.rotation.x = -.35; s.layers.set(1);
@@ -137,7 +137,7 @@ mesh(mergeGeo(seatsG), SEAT, 0, 0, 0); mesh(mergeGeo(backsG), SEAT2, 0, 0, 0);
 // little table lamps between the rows
 for (const [x, z] of [[-6.3, -3.5], [6.3, -3.5], [-6.3, .3], [6.3, .3]]) { mesh(new THREE.CylinderGeometry(.35, .35, .7, 18), toon(0x3a2a52), x, .35, z); refl(mesh(new THREE.CylinderGeometry(.12, .12, .2, 12), neonMat(0xffc68a), x, .82, z, scene, false)); glow(0xffb47a, 1.4, x, .9, z, scene, .55); }
 // ---- pillars with neon edges
-for (const [x, z] of [[-13.6, 4], [13.6, 4], [-13.6, 11], [13.6, 11]]) { mesh(new THREE.BoxGeometry(1.1, CEIL, 1.1), toon(0x261a3c), x, CEIL / 2, z); [-1, 1].forEach(s => refl(mesh(new THREE.BoxGeometry(.06, CEIL - .6, .06), neonMat(s < 0 ? 0xff3fa4 : 0x19e3ff), x - Math.sign(x) * .58, CEIL / 2, z + s * .5, scene, false))); }
+for (const [x, z] of [[-13.6, 4], [13.6, 4], [-13.6, 11], [13.6, 11]]) { mesh(new THREE.BoxGeometry(1.1, CEIL, 1.1), toon(0x261a3c), x, CEIL / 2, z); [-1, 1].forEach(s => refl(mesh(new THREE.BoxGeometry(.06, CEIL - .6, .06), neonMat(s < 0 ? 0xff3fa4 : 0x19e3ff, 6), x - Math.sign(x) * .58, CEIL / 2, z + s * .5, scene, false))); }
 // ---- dust in the light of the wall
 const ND = PHONE ? 220 : 600, dg = new THREE.BufferGeometry(), dp = new Float32Array(ND * 3); for (let i = 0; i < ND; i++) dp.set([(Math.random() - .5) * 30, Math.random() * 8, ZW + 1 + Math.random() * 22], i * 3);
 dg.setAttribute('position', new THREE.BufferAttribute(dp, 3)); const dust = new THREE.Points(dg, new THREE.PointsMaterial({ map: glowTex, color: 0xffc8e8, size: .07, transparent: true, opacity: .55, depthWrite: false, blending: THREE.AdditiveBlending })); dust.layers.set(1); scene.add(dust);
@@ -198,14 +198,29 @@ function camAt(t) { if (CAMQ.length === 7) { cam.position.set(CAMQ[0], CAMQ[1], 
   const k = sm(Math.max(0, (t % SHOT - (SHOT - BLEND)) / BLEND)); cam.position.lerpVectors(A.p, B.p, k); const tt = new THREE.Vector3().lerpVectors(A.t, B.t, k); cam.fov = A.f + (B.f - A.f) * k;
   cam.position.x += mx * .4 + Math.sin(t * .7) * .05; cam.position.y += -my * .2 + Math.sin(t * .9) * .03; cam.lookAt(tt); cam.updateProjectionMatrix(); }
 // ================================================================ loop
-const clock = new THREE.Clock(); let T = (+QPS.get('shot') || 0) * SHOT + .5, ready = false, frames = 0, slow = 0, featT = 0;
-function frame() { requestAnimationFrame(frame); const dt = Math.min(clock.getDelta(), .05); if (document.hidden) return; tsV += ((mode === 'term' ? .45 : 1) - tsV) * Math.min(1, dt * 1.2); const ts = tsV; T += dt * ts;
+const clock = new THREE.Clock(); let T = (+QPS.get('shot') || 0) * SHOT + .5, ready = false, frames = 0, slow = 0, featT = 0, blink = 0;
+// ================================================================ the house lights: tubes flicker on toward the wall, then the board boots and its rows type in
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const INTRO = { t: (location.hash === '#book' || RM || QPS.has('shot') || CAMQ.length === 7) ? 99 : 0, lit: false, rv: -1 }; const DUR = 3.9;
+const skip = () => { if (INTRO.t < DUR) INTRO.t = DUR; }; addEventListener('pointerdown', skip); addEventListener('keydown', skip);
+const offC = new THREE.Color(0x000000), tmpC = new THREE.Color(), wallMat = wallM.material, tickMat = tickM.material;
+const smooth = x => x <= 0 ? 0 : x >= 1 ? 1 : x * x * (3 - 2 * x), flick = (t, k) => t <= 0 ? 0 : t >= .42 ? 1 : (Math.sin(t * 90 + k * 40) > .1 ? .9 : .08) * Math.min(1, t * 5);
+function intro(dt) { if (INTRO.t >= 99) return 1; INTRO.t += dt; const t = INTRO.t;
+  for (const n of NEONS) { const at = n.order <= 5 ? .15 + n.order * .16 : n.order === 6 ? 1.15 + n.k * .3 : 1.5; n.m.color.copy(tmpC.copy(offC).lerp(n.c, flick(t - at, n.k))); }
+  const w = t < 1.75 ? 0 : t < 2.05 ? (Math.sin(t * 120) > 0 ? .85 : .15) : 1; wallMat.color.setScalar(w); tickMat.color.setScalar(t < 2.3 ? 0 : smooth((t - 2.3) / .3));
+  const rv = t < 2.05 ? 0 : smooth((t - 2.05) / 1.0); if (Math.abs(rv - INTRO.rv) > .06 || (rv >= 1 && INTRO.rv < 1)) { INTRO.rv = rv; WALLRV = rv; drawWall(rv); }
+  for (const l of wallL) l.userData.k = w; if (!INTRO.lit && t > 2.7) { INTRO.lit = true; window.dispatchEvent(new Event('oddz:lit')); }
+  if (t >= DUR) { INTRO.t = 99; for (const n of NEONS) n.m.color.copy(n.c); wallMat.color.setScalar(1); tickMat.color.setScalar(1); WALLRV = 1; drawWall(1); for (const l of wallL) l.userData.k = 1; if (!INTRO.lit) { INTRO.lit = true; window.dispatchEvent(new Event('oddz:lit')); } return 1; }
+  return smooth(t / DUR); }
+if (INTRO.t >= 99) setTimeout(() => window.dispatchEvent(new Event('oddz:lit')), 50); else { for (const n of NEONS) n.m.color.copy(offC); wallMat.color.setScalar(0); tickMat.color.setScalar(0); WALLRV = 0; drawWall(0); for (const l of wallL) l.userData.k = 0; }
+const C0 = new THREE.Vector3(), CT = new THREE.Vector3(), IP = new THREE.Vector3(0, 6.6, 15), IT = new THREE.Vector3(0, 3.2, -14);
+function frame() { requestAnimationFrame(frame); const dt = Math.min(clock.getDelta(), .05); if (document.hidden) return; tsV += ((mode === 'term' ? .45 : 1) - tsV) * Math.min(1, dt * 1.2); const ts = tsV; const ik = intro(dt); if (ik >= 1) T += dt * ts;
   dimV += ((mode === 'term' ? 1 : 0) - dimV) * Math.min(1, dt * 1.4); post.uniforms.dim.value = dimV * .55; post.uniforms.time.value = T % 10;
-  camAt(T + 1);
+  camAt(T + 1); if (ik < 1) { C0.copy(cam.position); const e = ik; cam.position.lerpVectors(IP, C0, e); CT.set(0, 0, -1).applyQuaternion(cam.quaternion); cam.lookAt(IT.clone().lerp(cam.position.clone().add(CT.multiplyScalar(20)), e)); }
   tick.t.offset.x += dt * ts * .03;
-  featT += dt; if (featT > 7) { featT = 0; FEAT++; drawWall(); }
+  featT += dt; if (featT > 7 && INTRO.t >= 99) { featT = 0; FEAT++; blink = .16; drawWall(); } if (blink > 0) { blink -= dt; wallMat.color.setScalar(blink > .08 ? .25 : blink > 0 ? .6 : 1); if (blink <= 0) wallMat.color.setScalar(1); }
   const dpA = dust.geometry.attributes.position; for (let i = 0; i < ND; i++) { const o = i * 3; dpA.array[o + 1] += dt * .08 * (1 + (i % 5) * .2); dpA.array[o] += Math.sin(T * .3 + i) * dt * .03; if (dpA.array[o + 1] > 8) dpA.array[o + 1] = 0; } dpA.needsUpdate = true;
-  const pulse = .92 + Math.sin(T * 1.7) * .08; wallL[0].intensity = 46 * pulse; wallL[2].intensity = 46 * (2 - pulse);
+  const pulse = .92 + Math.sin(T * 1.7) * .08, wk = wallL[0].userData.k ?? 1; wallL[0].intensity = 46 * pulse * wk; wallL[2].intensity = 46 * (2 - pulse) * wk; wallL[1].intensity = 34 * wk;
   // render: colour (all layers), normals+depth (layer 0), then ink
   if (frames % 3 === 0) R.shadowMap.needsUpdate = true; cam.layers.enableAll(); scene.overrideMaterial = null; R.setRenderTarget(rtC); R.render(scene, cam);
   cam.layers.set(0); scene.overrideMaterial = normalMat; R.setRenderTarget(rtN); R.render(scene, cam); scene.overrideMaterial = null;
@@ -213,4 +228,4 @@ function frame() { requestAnimationFrame(frame); const dt = Math.min(clock.getDe
   frames++; if (!ready && frames > 2) { ready = true; window.dispatchEvent(new Event('oddz:scene')); }
   if (dt > .045) slow++; else slow = Math.max(0, slow - 1); if (slow > 40 && DPR > .8) { DPR = Math.max(.75, DPR - .25); R.setPixelRatio(DPR); size(); slow = 0; } }
 frame();
-const DPR0 = DPR; let dprT = 0; window.oddzScene = { mode(m) { if (m === mode) return; mode = m; clearTimeout(dprT); const set = () => { DPR = mode === 'term' ? Math.min(.6, DPR0) : DPR0; R.setPixelRatio(DPR); size(); }; if (m === 'term') dprT = setTimeout(set, 1500); else set(); }, get ready() { return ready; } };
+const DPR0 = DPR; let dprT = 0; window.oddzScene = { introAt(t) { INTRO.t = t; INTRO.rv = -1; }, mode(m) { if (m === mode) return; mode = m; clearTimeout(dprT); const set = () => { DPR = mode === 'term' ? Math.min(.6, DPR0) : DPR0; R.setPixelRatio(DPR); size(); }; if (m === 'term') dprT = setTimeout(set, 1500); else set(); }, get ready() { return ready; } };
