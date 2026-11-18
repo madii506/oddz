@@ -73,6 +73,30 @@
 "name": "The Game Awards",
 "color": "#c9a0ff",
 "s": "Settled from The Game Awards 2026 broadcast. If GTA VI is not eligible, the prop is void."
+},
+{
+"id": "weird",
+"name": "Weird Leonida",
+"color": "#ff9f43",
+"s": "Settled when a clear video of it in the retail game is posted by the date. No mods, no edits."
+},
+{
+"id": "trenches",
+"name": "The trenches",
+"color": "#a3e635",
+"s": "Settled from Jupiter / DexScreener data at the time named (Solana GTA coins on the Oddz trenches list), or pump.fun for launches."
+},
+{
+"id": "internet",
+"name": "The internet",
+"color": "#38bdf8",
+"s": "Settled from the public post or chart itself (X, YouTube, TikTok, Google Trends) or a major outlet's report, by the date."
+},
+{
+"id": "events",
+"name": "Launch events",
+"color": "#f472b6",
+"s": "Settled from a major outlet's report or an official post, by the date."
 }
 ],
 "props": [
@@ -2244,6 +2268,772 @@
 "No"
 ],
 "closes": "2026-11-19T04:00:00Z"
+},
+{
+"id": "WD01",
+"c": "weird",
+"q": "An alligator eats a player on video by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "WD02",
+"c": "weird",
+"q": "A random event with an alligator in a swimming pool is found by Dec 15?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "WD03",
+"c": "weird",
+"q": "A frozen iguana falls from a tree on video by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "WD04",
+"c": "weird",
+"q": "A player gets struck by lightning on video by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "WD05",
+"c": "weird",
+"q": "A sinkhole swallows a car on video by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "WD06",
+"c": "weird",
+"q": "A loose tiger random event is found by Dec 15?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "WD07",
+"c": "weird",
+"q": "A drunk Santa random event is found by Dec 25?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "WD08",
+"c": "weird",
+"q": "A Christmas or holiday event appears in the game by Dec 25?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "WD09",
+"c": "weird",
+"q": "A UFO cult or alien believers group is found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "WD10",
+"c": "weird",
+"q": "A manatee is spotted in the game by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "WD11",
+"c": "weird",
+"q": "A player rides a shopping cart on video by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "WD12",
+"c": "weird",
+"q": "An in-game news story about the player's own crimes is found by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "WD13",
+"c": "weird",
+"q": "NPCs filming you for in-game social media is shown on video by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "WD14",
+"c": "weird",
+"q": "A monkey that steals your stuff is found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "WD15",
+"c": "weird",
+"q": "A hurricane party random event is found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "WD16",
+"c": "weird",
+"q": "A theme-park mascot fight is found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "WD17",
+"c": "weird",
+"q": "A boat crash at a boat ramp random event is found by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "WD18",
+"c": "weird",
+"q": "A \"Florida Man\" headline about the player shows up in the game by Dec 15?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "WD19",
+"c": "weird",
+"q": "A player gets arrested in their underwear on video by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "WD20",
+"c": "weird",
+"q": "An NPC is seen wrestling an alligator by Dec 15?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "WD21",
+"c": "weird",
+"q": "Can you hunt alligators?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "WD22",
+"c": "weird",
+"q": "Can you go fishing?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "WD23",
+"c": "weird",
+"q": "Can you own a pet alligator?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "WD24",
+"c": "weird",
+"q": "Can you get a tattoo?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "WD25",
+"c": "weird",
+"q": "Can you get a haircut that changes how NPCs react?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "WD26",
+"c": "weird",
+"q": "Can you get a sunburn or tan?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "TR01",
+"c": "trenches",
+"q": "Any GTA coin on Solana above $50M market cap on Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "TR02",
+"c": "trenches",
+"q": "The biggest GTA coin above $15M market cap on Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "TR03",
+"c": "trenches",
+"q": "The biggest GTA coin above $30M market cap on Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "TR04",
+"c": "trenches",
+"q": "A GTA coin launched on or after Nov 18 reaches $5M market cap by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "TR05",
+"c": "trenches",
+"q": "A coin named after Lucia or Jason reaches $1M market cap by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "TR06",
+"c": "trenches",
+"q": "A GTA coin with a Bigfoot theme reaches $1M market cap by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "TR07",
+"c": "trenches",
+"q": "A coin named after a GTA VI meme or NPC reaches $2M market cap by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "TR08",
+"c": "trenches",
+"q": "Combined market cap of the top 10 GTA coins above $40M on Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "TR09",
+"c": "trenches",
+"q": "The top GTA coin on Nov 30 is a different coin than on Nov 18?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "TR10",
+"c": "trenches",
+"q": "A GTA coin lists on a major centralized exchange (Coinbase, Binance, OKX, Bybit) by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "TR11",
+"c": "trenches",
+"q": "A GTA coin hits $100K in 24h volume with fewer than 500 holders (a botted pump) by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "TR12",
+"c": "trenches",
+"q": "More than 30 GTA coins pass the Oddz trenches filter on Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "TR13",
+"c": "trenches",
+"q": "Biggest GTA coin's market cap on Dec 1?",
+"o": [
+"Under $10M",
+"$10M to $24.9M",
+"$25M to $49.9M",
+"$50M or more"
+],
+"closes": "2026-11-21T00:00:00Z",
+"s": "Settled from Jupiter / DexScreener at 00:00 UTC Dec 1."
+},
+{
+"id": "TR14",
+"c": "trenches",
+"q": "How many GTA coins pass the Oddz trenches filter on Dec 1?",
+"o": [
+"Under 15",
+"15 to 24",
+"25 to 39",
+"40 or more"
+],
+"closes": "2026-11-21T00:00:00Z",
+"s": "Settled from the Oddz trenches list at 00:00 UTC Dec 1."
+},
+{
+"id": "IN01",
+"c": "internet",
+"q": "\"GTA 6\" is #1 on YouTube trending (US) on Nov 19?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T12:00:00Z"
+},
+{
+"id": "IN02",
+"c": "internet",
+"q": "Rockstar's launch-day post on X passes 1M likes by Nov 25?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T12:00:00Z"
+},
+{
+"id": "IN03",
+"c": "internet",
+"q": "A GTA VI clip passes 50M views on TikTok by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T12:00:00Z"
+},
+{
+"id": "IN04",
+"c": "internet",
+"q": "A GTA VI meme sound is used in 100K+ TikToks by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T12:00:00Z"
+},
+{
+"id": "IN05",
+"c": "internet",
+"q": "Someone is reported fired for playing GTA VI at work by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T12:00:00Z"
+},
+{
+"id": "IN06",
+"c": "internet",
+"q": "A company gives staff a \"GTA VI day off\" (reported) by Nov 25?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T12:00:00Z"
+},
+{
+"id": "IN07",
+"c": "internet",
+"q": "A real Florida politician comments on GTA VI by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T12:00:00Z"
+},
+{
+"id": "IN08",
+"c": "internet",
+"q": "A real \"Florida Man\" news story mentions GTA VI by Dec 15?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T12:00:00Z"
+},
+{
+"id": "IN09",
+"c": "internet",
+"q": "Elon Musk posts about GTA VI by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T12:00:00Z"
+},
+{
+"id": "IN10",
+"c": "internet",
+"q": "Drake posts about GTA VI by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T12:00:00Z"
+},
+{
+"id": "IN11",
+"c": "internet",
+"q": "Snoop Dogg posts about GTA VI by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T12:00:00Z"
+},
+{
+"id": "IN12",
+"c": "internet",
+"q": "A sitting head of state or government mentions GTA VI by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T12:00:00Z"
+},
+{
+"id": "IN13",
+"c": "internet",
+"q": "A brand account goes viral (100K+ likes) with a GTA VI meme by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T12:00:00Z"
+},
+{
+"id": "IN14",
+"c": "internet",
+"q": "A GTA VI parody trailer passes 10M views by Dec 15?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T12:00:00Z"
+},
+{
+"id": "IN15",
+"c": "internet",
+"q": "\"Jason and Lucia\" becomes a top Halloween-style couple costume search by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T12:00:00Z"
+},
+{
+"id": "IN16",
+"c": "internet",
+"q": "A GTA VI glitch compilation passes 5M views by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T12:00:00Z"
+},
+{
+"id": "EV01",
+"c": "events",
+"q": "A midnight launch line of 500+ people is reported at one store?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T04:00:00Z"
+},
+{
+"id": "EV02",
+"c": "events",
+"q": "A store robbery of GTA VI copies is reported by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "EV03",
+"c": "events",
+"q": "A sealed GTA VI copy sells for $1,000+ on eBay by Nov 25?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "EV04",
+"c": "events",
+"q": "A GTA VI billboard runs in Times Square on launch day?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T04:00:00Z"
+},
+{
+"id": "EV05",
+"c": "events",
+"q": "Take-Two's CEO appears on CNBC in launch week?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "EV06",
+"c": "events",
+"q": "Sony announces a PS5 price cut or new GTA VI bundle by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "EV07",
+"c": "events",
+"q": "A pro athlete celebrates with a GTA \"WASTED\" or \"MISSION PASSED\" reference in a game by Dec 15?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "EV08",
+"c": "events",
+"q": "A school district reports attendance problems on launch day?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "EV09",
+"c": "events",
+"q": "A police department posts a GTA VI joke on social media by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "EV10",
+"c": "events",
+"q": "A real-life car chase is compared to GTA VI by a major outlet by Dec 15?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "EV11",
+"c": "events",
+"q": "Rockstar hosts an in-person launch event?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T04:00:00Z"
+},
+{
+"id": "EV12",
+"c": "events",
+"q": "A record for the longest GTA VI stream (60+ hours straight) is claimed by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "TV22",
+"c": "streams",
+"q": "Kai Cenat streams GTA VI for 24h straight in launch week?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T04:00:00Z"
+},
+{
+"id": "TV23",
+"c": "streams",
+"q": "A streamer gets banned on Kick while playing GTA VI in launch week?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "TV24",
+"c": "streams",
+"q": "A GTA VI any% run under 4h is posted by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "TV25",
+"c": "streams",
+"q": "A blindfolded GTA VI mission run is posted by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE29",
+"c": "secrets",
+"q": "A skunk ape (swamp Bigfoot) found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE30",
+"c": "secrets",
+"q": "A hidden message from Rockstar in the credits found by Dec 15?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE31",
+"c": "secrets",
+"q": "A secret room behind a waterfall found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE32",
+"c": "secrets",
+"q": "A hidden Tommy Vercetti voice line found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
 }
 ]
 }

@@ -240,6 +240,16 @@ html:not(.term) #pops{display:none}
 .opts.two .opt.lead:first-child .bar{background:rgba(47,224,168,.24)!important}.opts.two .opt.lead:last-child .bar{background:rgba(255,95,152,.22)!important}
 .note{padding:10px 14px;font:600 11.5px/1.45 JB}.note span{color:var(--faint)}
 .tabs{-webkit-mask-image:none}.fchips{display:contents}
+
+/* ---- trenches */
+.trh{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.trs{display:flex;gap:22px;flex-wrap:wrap;font:600 11px JB;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}.trs b{font:900 20px RB;letter-spacing:-.01em;text-transform:none;color:var(--paper);margin-right:6px}
+.tra{display:flex;gap:8px;align-items:center}.trl{width:auto;height:42px;padding:0 18px;display:inline-flex;align-items:center;font-size:11.5px}
+.ctbl td{vertical-align:middle}.ctbl .cn{display:flex;align-items:center;gap:10px;min-width:220px}.ctbl .cn img,.ctbl .cn .ph{width:34px;height:34px;border-radius:50%;object-fit:cover;flex:none;background:#2a1a3e}
+.ctbl .ph{display:grid;place-items:center;font:900 14px RB}.ctbl .cn b{display:block;font:700 14px RB;max-width:220px;overflow:hidden;text-overflow:ellipsis}.ctbl .cn small{font:700 11px JB;color:var(--faint)}
+.ctbl .acts{display:flex;gap:6px}.ctbl .sbtn{display:inline-flex;align-items:center}.sbtn.pf{border-color:rgba(163,230,53,.5);color:#a3e635}.wanted{color:var(--gold);letter-spacing:1px;font-size:11px}.wanted i{font-style:normal;opacity:.22}.wanted i.on{opacity:1}
+.pfb{font:800 9px JB;letter-spacing:.1em;padding:2px 6px;border-radius:99px;background:rgba(163,230,53,.14);color:#a3e635;margin-left:6px;vertical-align:middle}
+@media (max-width:760px){.ctbl tr{display:grid;grid-template-columns:1fr auto;padding:10px 4px;border-bottom:1px solid var(--line)}.ctbl th{display:none}.ctbl td{border:0;padding:3px 8px}.ctbl td.hm{display:none}.ctbl td:last-child{grid-column:1/-1}.ctbl .acts{justify-content:flex-start}.trl{height:44px}.ctbl .sbtn{height:40px}}
 /* ================= responsive ================= */
 @media (max-width:1500px){.tab{padding:0 11px;font-size:10.5px}.clk{display:none}}
 @media (max-width:1180px){.lgrid{grid-template-columns:1fr 1fr}.lgrid .pnl:first-child{grid-column:1/-1;max-height:300px}}
@@ -278,6 +288,7 @@ html:not(.term) #pops{display:none}
     <nav class="tabs" id="tabs">
       <button class="tab on" data-t="board">props <span class="n" id="nProps">—</span></button>
       <button class="tab" data-t="real">real money <span class="n" id="nReal">—</span></button>
+      <button class="tab" data-t="trenches">trenches <span class="n" id="nTr">—</span></button>
       <button class="tab" data-t="live">live</button>
       <button class="tab" data-t="slip">my slip <span class="n" id="nMine">0</span></button>
       <button class="tab" data-t="leaders">leaderboard</button>
@@ -297,6 +308,9 @@ html:not(.term) #pops{display:none}
       <div class="grid" id="grid"></div></div></div>
       <div class="dock" id="dock"></div></div>
     <div class="pane" id="p-real"><div class="note" id="realNote"><b>Real money</b> <span>·</span> Polymarket's GTA VI markets through Jupiter <span>·</span> bet SOL from your wallet <span>·</span> $5 min <span>·</span> not in the US or South Korea</div><div class="bbar"><button class="chip on" data-rs="vol">most volume</button><button class="chip" data-rs="live">live odds</button><button class="chip" data-rs="close">ending soon</button><button class="chip" data-rs="today">busiest today</button></div><div class="rgrid" id="real"></div></div>
+    <div class="pane" id="p-trenches"><div class="trh"><div class="trs" id="trSum"></div><div class="tra"><a class="gob pink trl" href="https://pump.fun/create" target="_blank" rel="noopener">launch a GTA coin on pump.fun ↗</a><button class="chip" id="trProps">trenches props →</button></div></div>
+      <div class="bbar"><input class="srch" id="tq" placeholder="search GTA coins…" autocomplete="off"><div class="fchips"><button class="chip on" data-ts="mcap">market cap</button><button class="chip" data-ts="h24">24h</button><button class="chip" data-ts="h1">1h</button><button class="chip" data-ts="vol">volume</button><button class="chip" data-ts="holders">holders</button><button class="chip" data-ts="new">newest</button><button class="chip" data-ts="pump">pump.fun only</button></div></div>
+      <div class="pnl"><div id="coins"></div></div></div>
     <div class="pane" id="p-live"><div class="lgrid">
       <div class="pnl"><div class="ph"><div><h2>Rolling launch</h2><p>PS5 unlocks at midnight local time, country by country</p></div></div><div class="lst" id="zones"></div></div>
       <div class="pnl"><div class="ph"><div><h2>The wire</h2><p>GTA VI headlines, live</p></div></div><div class="lst feed" id="news"></div></div>
