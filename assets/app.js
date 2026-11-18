@@ -24,7 +24,6 @@ const ZONES = [['New Zealand', 'Auckland', 13], ['Australia, east', 'Sydney · M
 const unlockAt = off => LAUNCH - off * 3600e3;
 function zonesLive() { return ZONES.filter(z => Date.now() >= unlockAt(z[2])).length; }
 function clock() { const n = zonesLive(), us = unlockAt(-5), now = Date.now();
-  $('#clk').innerHTML = `<b>${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</b><br>GTA VI live in ${n} zone${n === 1 ? '' : 's'}`;
   if (S.tab === 'live') renderZones(); if (S.tab === 'board' && clock.k++ % 30 === 0) { renderGrid(); renderRail(); } }
 clock.k = 1;
 // ---------------------------------------------------------------- state
