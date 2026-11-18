@@ -16,7 +16,7 @@ const A58 = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
 function b58(bytes) { let n = 0n; for (const b of bytes) n = n * 256n + BigInt(b); let s = ''; while (n > 0n) { s = A58[Number(n % 58n)] + s; n /= 58n; } for (const b of bytes) { if (b) break; s = '1' + s; } return s; }
 // ---------------------------------------------------------------- the mark, as favicon
 const MARK = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path fill="#fff6f2" d="M96 20 A80 80 0 0 0 96 180 Z"/><path fill="#fff6f2" d="M110 44 A56 56 0 0 1 110 156 Z"/></svg>`;
-$('link[rel=icon]').href = 'data:image/svg+xml,' + encodeURIComponent(MARK);
+
 // ---------------------------------------------------------------- the rolling launch: PS5 unlocks at midnight local time
 const LAUNCH = Date.UTC(2026, 10, 19, 0, 0);
 const ZONES = [['New Zealand', 'Auckland', 13], ['Australia, east', 'Sydney · Melbourne', 11], ['Japan & Korea', 'Tokyo · Seoul', 9], ['Southeast Asia', 'Singapore · Manila', 8], ['India', 'Mumbai · Delhi', 5.5],
