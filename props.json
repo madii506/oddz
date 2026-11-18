@@ -55,6 +55,24 @@
 "name": "Launch week",
 "color": "#e8e1ff",
 "s": "Settled from Rockstar / PlayStation / Xbox status pages, Downdetector, or official posts."
+},
+{
+"id": "world",
+"name": "Leonida & the map",
+"color": "#5ce1a0",
+"s": "Settled from the retail game (story mode or free roam), shown on video, or a major outlet's write-up."
+},
+{
+"id": "money",
+"name": "Money in the game",
+"color": "#e9c46a",
+"s": "Settled from the retail game's story mode, shown on video or the GTA VI wiki."
+},
+{
+"id": "tga",
+"name": "The Game Awards",
+"color": "#c9a0ff",
+"s": "Settled from The Game Awards 2026 broadcast. If GTA VI is not eligible, the prop is void."
 }
 ],
 "props": [
@@ -1219,6 +1237,1013 @@
 "No"
 ],
 "closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "ST25",
+"c": "story",
+"q": "Does a main character get shot in the final cutscene?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST26",
+"c": "story",
+"q": "Is there a playable epilogue after the credits?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST27",
+"c": "story",
+"q": "Does the story end with Jason and Lucia leaving Vice City?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST28",
+"c": "story",
+"q": "Does a trusted crew member turn out to be an informant?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST29",
+"c": "story",
+"q": "Is there a mission where you play as a cop?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST30",
+"c": "story",
+"q": "Is there a mission during a festival or parade?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST31",
+"c": "story",
+"q": "Does a mission take place on a cruise ship?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST32",
+"c": "story",
+"q": "Is there a courtroom scene?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST33",
+"c": "story",
+"q": "Does a story chase go through the Grassrivers swamps?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST34",
+"c": "story",
+"q": "Can you play as both Jason and Lucia in the final mission?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST35",
+"c": "story",
+"q": "Does the game have a \"good\" and a \"bad\" ending?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST36",
+"c": "story",
+"q": "Is the title \"Grand Theft Auto\" said out loud in the story?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST37",
+"c": "story",
+"q": "Who do you play as in the last mission?",
+"o": [
+"Jason",
+"Lucia",
+"Both",
+"Someone else"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR16",
+"c": "crew",
+"q": "Is Ken Rosenberg named or seen?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR17",
+"c": "crew",
+"q": "Is Phil Cassidy referenced?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR18",
+"c": "crew",
+"q": "Is Big Smoke referenced?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR19",
+"c": "crew",
+"q": "Does a GTA IV character other than Niko appear?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR20",
+"c": "crew",
+"q": "Does Jason's mother appear?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR21",
+"c": "crew",
+"q": "Does Lucia have a sibling in the story?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR22",
+"c": "crew",
+"q": "Do Real Dimez get their own mission?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR23",
+"c": "crew",
+"q": "Is Love Fist (the Vice City band) referenced?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR24",
+"c": "crew",
+"q": "Does a character from Bully appear or get named?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR25",
+"c": "crew",
+"q": "Is there a talk radio host from older GTA games?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "SE19",
+"c": "secrets",
+"q": "A treasure wreck under the sea found by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE20",
+"c": "secrets",
+"q": "Tommy Vercetti's old mansion found by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE21",
+"c": "secrets",
+"q": "A secret radio station found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE22",
+"c": "secrets",
+"q": "A zombie Easter egg found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE23",
+"c": "secrets",
+"q": "A dinosaur Easter egg found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE24",
+"c": "secrets",
+"q": "A Red Dead Redemption 3 tease found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE25",
+"c": "secrets",
+"q": "A secret military base found by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE26",
+"c": "secrets",
+"q": "A ghost ship found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE27",
+"c": "secrets",
+"q": "A crop circle or alien abduction found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE28",
+"c": "secrets",
+"q": "A hidden playable vehicle from Vice City (2002) found by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "RI16",
+"c": "rides",
+"q": "Can you fly a seaplane?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI17",
+"c": "rides",
+"q": "Is there a hovercraft?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI18",
+"c": "rides",
+"q": "Can you ride a hot air balloon?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI19",
+"c": "rides",
+"q": "Can you drive a train?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI20",
+"c": "rides",
+"q": "Is there a flamethrower?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI21",
+"c": "rides",
+"q": "Is there a homing rocket launcher?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI22",
+"c": "rides",
+"q": "Is there a gold weapon finish?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI23",
+"c": "rides",
+"q": "Is there an electric scooter?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI24",
+"c": "rides",
+"q": "Does the Banshee return?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI25",
+"c": "rides",
+"q": "Does the Cheetah return?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "WO01",
+"c": "world",
+"q": "Is there a seventh region beyond the six on Rockstar's map?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "WO02",
+"c": "world",
+"q": "Is there a space center you can visit?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "WO03",
+"c": "world",
+"q": "Is there a theme park with rides you can ride?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "WO04",
+"c": "world",
+"q": "Can you sail to an island off the main map?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "WO05",
+"c": "world",
+"q": "Is there a speedway you can race on?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "WO06",
+"c": "world",
+"q": "Is there a working metro or train line?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "WO07",
+"c": "world",
+"q": "Can you visit a prison in free roam?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "WO08",
+"c": "world",
+"q": "Can you play a round of golf?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "WO09",
+"c": "world",
+"q": "Can you gamble at a casino in free roam?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "WO10",
+"c": "world",
+"q": "Can you go scuba diving?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "WO11",
+"c": "world",
+"q": "Is there a working bowling alley?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "WO12",
+"c": "world",
+"q": "Can you rent a hotel room in free roam?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "WO13",
+"c": "world",
+"q": "Leonida measured at least 2x the size of GTA V's map by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z",
+"s": "Settled from the first major-outlet or community map measurement published by Dec 1."
+},
+{
+"id": "MO01",
+"c": "money",
+"q": "Is there a stock market (like BAWSAQ) in story mode?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "MO02",
+"c": "money",
+"q": "Is there a crypto coin parody in the game?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "MO03",
+"c": "money",
+"q": "Can you buy a business that earns money in story mode?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "MO04",
+"c": "money",
+"q": "Does a single heist pay out $10M or more in story mode?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "MO05",
+"c": "money",
+"q": "Can you buy a house or apartment in story mode?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "MO06",
+"c": "money",
+"q": "Is there an in-game lottery?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "MO07",
+"c": "money",
+"q": "Can you launder money as a mission mechanic?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "MO08",
+"c": "money",
+"q": "Most expensive property in story mode costs…",
+"o": [
+"Under $5M",
+"$5M to $24.9M",
+"$25M or more"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "GA01",
+"c": "tga",
+"q": "GTA VI wins Best Narrative at The Game Awards 2026?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "GA02",
+"c": "tga",
+"q": "GTA VI wins Best Score and Music at The Game Awards 2026?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "GA03",
+"c": "tga",
+"q": "GTA VI wins Best Art Direction at The Game Awards 2026?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "GA04",
+"c": "tga",
+"q": "GTA VI wins Best Action / Adventure at The Game Awards 2026?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "GA05",
+"c": "tga",
+"q": "GTA VI wins Best Game Direction at The Game Awards 2026?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "GA06",
+"c": "tga",
+"q": "GTA VI wins Best Performance (any GTA VI actor) at The Game Awards 2026?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "GA07",
+"c": "tga",
+"q": "GTA VI wins the most awards of the night?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "GA08",
+"c": "tga",
+"q": "Rockstar shows something new for GTA VI at The Game Awards 2026?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "TV13",
+"c": "streams",
+"q": "Kai Cenat's GTA VI stream peaks above 1M viewers?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T04:00:00Z"
+},
+{
+"id": "TV14",
+"c": "streams",
+"q": "Does Pokimane stream GTA VI in launch week?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T04:00:00Z"
+},
+{
+"id": "TV15",
+"c": "streams",
+"q": "Does Ninja stream GTA VI in launch week?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T04:00:00Z"
+},
+{
+"id": "TV16",
+"c": "streams",
+"q": "Does Asmongold stream GTA VI in launch week?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T04:00:00Z"
+},
+{
+"id": "TV17",
+"c": "streams",
+"q": "Does Adin Ross stream GTA VI in launch week?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T04:00:00Z"
+},
+{
+"id": "TV18",
+"c": "streams",
+"q": "Does Jynxzi stream GTA VI in launch week?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T04:00:00Z"
+},
+{
+"id": "TV19",
+"c": "streams",
+"q": "A streamer finishes the story within 48h of the NZ unlock?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "TV20",
+"c": "streams",
+"q": "A pacifist or no-damage run is posted by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "TV21",
+"c": "streams",
+"q": "GTA VI hours watched on Twitch, launch week?",
+"o": [
+"Under 50M",
+"50M to 99M",
+"100M to 199M",
+"200M or more"
+],
+"closes": "2026-11-19T04:00:00Z",
+"s": "Settled from StreamsCharts / TwitchTracker, Nov 19 to Nov 25."
+},
+{
+"id": "RE11",
+"c": "records",
+"q": "Take-Two reports 30M+ sold in its next earnings?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-25T00:00:00Z"
+},
+{
+"id": "RE12",
+"c": "records",
+"q": "GTA VI is #1 on the UK physical chart in launch week?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "RE13",
+"c": "records",
+"q": "Sony announces a record PS5 week by Dec 15?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-25T00:00:00Z"
+},
+{
+"id": "RE14",
+"c": "records",
+"q": "TTWO hits a new all-time high by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-25T00:00:00Z"
+},
+{
+"id": "RE15",
+"c": "records",
+"q": "\"GTA 6\" hits 100 on Google Trends (worldwide) on Nov 19?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T04:00:00Z"
+},
+{
+"id": "RE16",
+"c": "records",
+"q": "Metacritic user score (PS5) below 8.0 on Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "MU04",
+"c": "music",
+"q": "A GTA VI radio song hits #1 on Spotify US by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "MU05",
+"c": "music",
+"q": "A song from GTA: Vice City (2002) is on the GTA VI radio?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "MU06",
+"c": "music",
+"q": "Is a radio station hosted by a real rapper?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "MU07",
+"c": "music",
+"q": "The GTA VI theme is released as a single by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "ON09",
+"c": "online",
+"q": "A GTA VI Online beta starts by Jan 31, 2027?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "ON10",
+"c": "online",
+"q": "A free story update for GTA VI by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "ON11",
+"c": "online",
+"q": "GTA+ adds GTA VI perks by Mar 31, 2027?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "ON12",
+"c": "online",
+"q": "A GTA VI roleplay (RP) mode is announced by Jun 30, 2027?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "ON13",
+"c": "online",
+"q": "GTA VI comes to a subscription service (Game Pass / PS Plus) by Dec 31, 2027?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "LA09",
+"c": "launch",
+"q": "Rockstar's service status shows an outage on Nov 19?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T04:00:00Z"
+},
+{
+"id": "LA10",
+"c": "launch",
+"q": "A third patch is released by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "LA11",
+"c": "launch",
+"q": "PS5 consoles reported sold out at a major US retailer by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "LA12",
+"c": "launch",
+"q": "\"GTA 6\" is the #1 trend on X in the US on Nov 19?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T04:00:00Z"
 }
 ]
 }

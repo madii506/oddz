@@ -75,7 +75,7 @@ html.term .th{transition-delay:.2s}html.term .tick{transition-delay:.28s}html.te
 .trun{display:flex;gap:34px;white-space:nowrap;animation:run 90s linear infinite;padding-left:20px;font:700 12px JB}.tick:hover .trun{animation-play-state:paused}
 .trun span{display:inline-flex;gap:8px;align-items:center;cursor:pointer}.trun .y{color:var(--yes)}.trun .nn{color:var(--no)}.trun .q{color:var(--paper)}.trun .c{color:var(--faint)}
 @keyframes run{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.strip{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:12px max(18px,2.6vw) 0}
+.strip{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:12px max(18px,2.6vw) 0}
 .st{padding:11px 14px;border-radius:12px;background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(12px);min-width:0}
 .st span{display:block;font:700 10px JB;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .st b{display:block;margin-top:4px;font:900 21px RB;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.st b small{font:700 11px JB;color:var(--dim);margin-left:6px;letter-spacing:0}
@@ -105,7 +105,7 @@ html.term .th{transition-delay:.2s}html.term .tick{transition-delay:.28s}html.te
 .bmain{display:flex;flex-direction:column;min-height:0}
 .bbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
 .srch{flex:1;min-width:180px;height:38px;padding:0 14px;border-radius:999px;background:rgba(7,4,14,.6);border:1px solid var(--line);outline:0;font:500 13px JB}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px;overflow:auto;padding-bottom:16px;align-content:start}
+.grid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px;overflow:auto;padding-bottom:16px;align-content:start}.bmain>.bbar,.bmain>.rail,.bmain>.chead{flex:none}
 .card{position:relative;padding:15px 16px 14px;border-radius:16px;background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(14px);display:flex;flex-direction:column;gap:11px;transition:border-color .2s,transform .2s}
 .card:hover{border-color:rgba(255,246,242,.26);transform:translateY(-2px)}
 .card .top{display:flex;align-items:center;justify-content:space-between;gap:8px;font:700 10.5px JB;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
@@ -190,6 +190,45 @@ html.term .th{transition-delay:.2s}html.term .tick{transition-delay:.28s}html.te
 @keyframes mp{0%{opacity:0;transform:scale(1.2)}10%{opacity:1;transform:scale(1)}80%{opacity:1}100%{opacity:0}}
 #toast{position:fixed;left:50%;bottom:64px;transform:translate(-50%,20px);z-index:60;background:var(--paper);color:var(--ink);font:700 14px RB;padding:12px 18px;border-radius:12px;opacity:0;transition:all .3s;pointer-events:none;max-width:90vw;text-align:center}
 #toast.on{opacity:1;transform:translate(-50%,0)}#toast.err{background:var(--no);color:#2a050a}
+
+/* ---- v2: rail, category head, stars, hot, parlay dock, drawer, profiles, sparks, pops */
+.sel{height:30px;border-radius:999px;border:1px solid var(--line);background:rgba(7,4,14,.6);padding:0 10px;font:800 10.5px JB;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);outline:0}
+.chip.pm{border-color:rgba(255,198,90,.45);color:var(--gold)}.chip.pm.on{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.rail{display:flex;gap:8px;overflow-x:auto;margin:-2px 0 12px;padding-bottom:2px;scrollbar-width:none}.rail::-webkit-scrollbar{display:none}
+.rc{flex:none;display:flex;align-items:center;gap:10px;height:40px;padding:0 14px 0 10px;border-radius:12px;background:rgba(255,198,90,.07);border:1px solid rgba(255,198,90,.25);font:600 12.5px RB;white-space:nowrap;max-width:360px}
+.rc b{font:800 11px JB;color:var(--gold);flex:none}.rc span{overflow:hidden;text-overflow:ellipsis}.rc:hover{background:rgba(255,198,90,.14)}
+.rail .rl{flex:none;align-self:center;font:800 10px JB;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;padding-right:4px}
+.chead{display:none;margin:0 0 12px;padding:14px 16px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}.chead.on{display:flex;align-items:center;gap:14px}
+.chead i{width:12px;height:12px;border-radius:50%}.chead h2{margin:0;font:900 20px RB}.chead p{margin:2px 0 0;font:500 12.5px RB;color:var(--faint)}.chead em{margin-left:auto;font:800 11px JB;font-style:normal;color:var(--dim)}
+.card{--cc:var(--line)}.card:hover{border-color:var(--cc);box-shadow:0 0 0 1px var(--cc),0 18px 50px -20px var(--cc)}
+.card:before{content:"";position:absolute;left:16px;right:16px;top:0;height:2px;border-radius:2px;background:var(--cc);opacity:.7}
+.card h3{cursor:pointer}.card h3:hover{text-decoration:underline;text-decoration-color:rgba(255,246,242,.3);text-underline-offset:4px}
+.star{font:400 16px RB;color:var(--faint);line-height:1;padding:2px 4px;margin:-2px -4px -2px 6px}.star.on{color:var(--gold)}.star:hover{color:var(--paper)}
+.hotb{font:800 9.5px JB;letter-spacing:.1em;padding:3px 7px;border-radius:99px;background:rgba(255,63,164,.16);color:var(--pink);margin-left:6px}
+.card .top .r{display:flex;align-items:center}
+.opt.leg{box-shadow:inset 0 0 0 2px var(--gold)}.opt.leg span:before{content:"＋ ";color:var(--gold)}
+body.pmode .card .opt:not([disabled]){border-style:dashed}
+.dock{position:absolute;right:0;bottom:14px;width:min(380px,calc(100% - 24px));padding:16px;border-radius:18px;background:#160b28;border:1px solid rgba(255,198,90,.4);box-shadow:0 30px 80px rgba(0,0,0,.6);display:none;z-index:4}
+.dock.on{display:block;animation:pin .35s cubic-bezier(.2,.8,.2,1)}
+.dock h4{margin:0 0 4px;font:900 18px RB;display:flex;justify-content:space-between;align-items:baseline}.dock h4 small{font:800 11px JB;color:var(--gold)}
+.dock .lg{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font:600 12.5px RB}.dock .lg b{font:800 11px JB;color:var(--gold)}.dock .lg button{color:var(--faint);font:700 14px RB}
+.dock .tot{display:flex;justify-content:space-between;margin:10px 0 12px;font:700 12px JB;color:var(--dim)}.dock .tot b{color:var(--paper);font:900 18px RB}
+.modal.side{place-items:stretch end;padding:0}.modal.side .mbox{width:min(520px,100%);max-height:100vh;height:100%;border-radius:0;transform:translateX(30px)}.modal.side.on .mbox{transform:none}
+.dist{display:flex;flex-direction:column;gap:8px;margin:14px 0}.dist .dr{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font:700 13.5px RB}.dist .dr em{font:700 12px JB;font-style:normal;color:var(--dim)}
+.dist .bar2{grid-column:1/-1;height:8px;border-radius:6px;background:rgba(255,246,242,.07);overflow:hidden}.dist .bar2 i{display:block;height:100%;border-radius:6px;background:var(--cc,var(--paper));transition:width .6s}
+.dist .dr.win{color:var(--gold)}.dist .dr.me{color:var(--paper)}.dist .dr.me:after{content:"your call";grid-column:1/-1;font:700 10px JB;letter-spacing:.1em;color:var(--yes);text-transform:uppercase}
+.pbtns{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 16px}.pbtns .gob{flex:1;min-width:120px;height:46px;font-size:12px}
+.callers{font:600 12px JB}.callers div{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line)}.callers b{color:var(--gold)}
+.mh{font:800 10.5px JB;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin:16px 0 6px}
+.wl{cursor:pointer;text-decoration:underline dotted rgba(255,246,242,.35);text-underline-offset:3px}
+.spark{display:block;width:100%;height:34px;margin-top:-4px}.mk .spk{grid-column:1/-1;margin-top:-4px}
+.bchart{height:110px;margin:0 0 12px;border-radius:12px;background:rgba(7,4,14,.5);border:1px solid var(--line);position:relative;overflow:hidden}.bchart svg{position:absolute;inset:0;width:100%;height:100%}.bchart small{position:absolute;left:10px;top:8px;font:700 10px JB;color:var(--faint);letter-spacing:.1em}
+#pops{position:fixed;left:18px;bottom:70px;z-index:25;display:flex;flex-direction:column;gap:8px;pointer-events:none}
+.pop{max-width:330px;padding:10px 14px;border-radius:12px;background:rgba(22,11,40,.94);border:1px solid var(--line);box-shadow:0 16px 40px rgba(0,0,0,.5);font:600 12.5px/1.35 RB;animation:popin .4s cubic-bezier(.2,.8,.2,1),popout .5s ease 4.6s forwards}
+.pop b{color:var(--gold)}.pop small{display:block;font:600 10.5px JB;color:var(--faint);margin-top:2px}
+@keyframes popin{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:none}}@keyframes popout{to{opacity:0;transform:translateY(8px)}}
+html:not(.term) #pops{display:none}
+@media (max-width:760px){.dock{position:fixed;left:12px;right:12px;bottom:64px;width:auto}#pops{display:none}.rail{display:none}.sel{display:none}}
 /* ================= responsive ================= */
 @media (max-width:1500px){.tab{padding:0 11px;font-size:10.5px}.clk{display:none}}
 @media (max-width:1180px){.strip{grid-template-columns:repeat(3,1fr)}.lgrid{grid-template-columns:1fr 1fr}.lgrid .pnl:first-child{grid-column:1/-1;max-height:300px}}
@@ -236,19 +275,21 @@ html.term .th{transition-delay:.2s}html.term .tick{transition-delay:.28s}html.te
   </header>
   <div class="tick tin"><div class="lv"><span class="dot on"></span>LIVE</div><div class="trun" id="tickR"><span class="c">loading the board…</span></div></div>
   <div class="strip tin">
-    <div class="st"><span>GTA VI</span><b id="sGame">—</b></div>
     <div class="st"><span>props open</span><b id="sOpen">—</b></div>
     <div class="st"><span>free calls</span><b id="sCalls">—</b></div>
+    <div class="st"><span>parlays</span><b id="sParl">—</b></div>
     <div class="st"><span>callers</span><b id="sCallers">—</b></div>
-    <div class="st"><span>real markets</span><b id="sReal">—</b></div>
     <div class="st"><span>real volume</span><b id="sVol">—</b></div>
   </div>
   <div class="main tin">
     <div class="pane on" id="p-board"><div class="bwrap"><aside class="pnl cats" id="cats"></aside><div class="bmain">
       <div class="bbar"><input class="srch" id="q" placeholder="search props…   ( / )" autocomplete="off">
-        <button class="chip on" data-f="all">all</button><button class="chip" data-f="open">open</button><button class="chip" data-f="soon">closing soon</button><button class="chip" data-f="set">settled</button><button class="chip" data-f="mine">mine</button></div>
-      <div class="grid" id="grid"></div></div></div></div>
-    <div class="pane" id="p-real"><div class="note" id="realNote"><b>Real money.</b> These are Polymarket's live GTA VI markets, traded through Jupiter on Solana. You bet in SOL from your own wallet: it swaps to USDC and opens the position in two signatures. Orders are $5 or more. Jupiter doesn't serve the US or South Korea. Oddz never holds your money.</div><div class="rgrid" id="real"></div></div>
+        <button class="chip on" data-f="all">all</button><button class="chip" data-f="open">open</button><button class="chip" data-f="hot"><i style="background:var(--pink)"></i>hot</button><button class="chip" data-f="soon">closing soon</button><button class="chip" data-f="star">★ starred</button><button class="chip" data-f="set">settled</button><button class="chip" data-f="mine">mine</button>
+        <select class="sel" id="sort"><option value="close">closing first</option><option value="hot">most called</option><option value="split">closest split</option><option value="new">newest</option></select><button class="chip pm" id="pmode">＋ parlay mode</button></div>
+      <div class="rail" id="rail"></div><div class="chead" id="chead"></div>
+      <div class="grid" id="grid"></div></div></div>
+      <div class="dock" id="dock"></div></div>
+    <div class="pane" id="p-real"><div class="note" id="realNote"><b>Real money.</b> These are Polymarket's live GTA VI markets, traded through Jupiter on Solana. You bet in SOL from your own wallet: it swaps to USDC and opens the position in two signatures. Orders are $5 or more. Jupiter doesn't serve the US or South Korea. Oddz never holds your money.</div><div class="bbar"><button class="chip on" data-rs="vol">most volume</button><button class="chip" data-rs="live">live odds</button><button class="chip" data-rs="close">ending soon</button><button class="chip" data-rs="today">busiest today</button></div><div class="rgrid" id="real"></div></div>
     <div class="pane" id="p-live"><div class="lgrid">
       <div class="pnl"><div class="ph"><div><h2>Rolling launch</h2><p>PS5 unlocks at midnight local time, country by country</p></div></div><div class="lst" id="zones"></div></div>
       <div class="pnl"><div class="ph"><div><h2>The wire</h2><p>GTA VI headlines, live</p></div></div><div class="lst feed" id="news"></div></div>
@@ -258,7 +299,7 @@ html.term .th{transition-delay:.2s}html.term .tick{transition-delay:.28s}html.te
     <div class="pane" id="p-how"><div class="how" id="how"></div></div>
     <div class="pane" id="p-desk"><div class="pnl"><div class="ph"><div><h2>The desk</h2><p>settle, lock or void a prop. Each action is a signed message from the desk wallet, with its source.</p></div><input class="srch" id="dq" placeholder="filter…" style="max-width:260px"></div><div id="desk"></div></div></div>
   </div>
-  <div class="foot tin"><label>oddz&nbsp;›</label><input id="cmdI" placeholder="type help · call ST01 yes · bet 1 yes 10 · real · live" autocomplete="off" spellcheck="false"><span id="cmdO"></span><span class="kh"><i>⌘K</i> search · <i>Q</i><i>E</i> tabs · <i>esc</i> street</span></div>
+  <div class="foot tin"><label>oddz&nbsp;›</label><input id="cmdI" placeholder="type help · call ST01 yes · open SE01 · parlay · bet 1 yes 10" autocomplete="off" spellcheck="false"><span id="cmdO"></span><span class="kh"><i>⌘K</i> search · <i>Q</i><i>E</i> tabs · <i>esc</i> street</span></div>
 </section>
 
 <div class="modal" id="mWal"><div class="mbox"><button class="x" data-x>×</button><h3>Connect a wallet</h3><p class="sub">Free calls only sign a message. Real bets ask your wallet to approve each transaction.</p><div id="wList"></div></div></div>
@@ -266,8 +307,11 @@ html.term .th{transition-delay:.2s}html.term .tick{transition-delay:.28s}html.te
 <div class="modal" id="mBet"><div class="mbox"><button class="x" data-x>×</button><h3 id="betT">Bet</h3><p class="sub" id="betS"></p>
   <div class="seg"><button class="y on" data-side="y">YES</button><button class="n" data-side="n">NO</button></div>
   <div class="amt"><input id="betA" type="number" min="5" step="1" value="10" inputmode="decimal"><button data-a="5">$5</button><button data-a="25">$25</button><button data-a="100">$100</button></div>
-  <div class="kv" id="betKV"></div><ul class="steps" id="betSteps"></ul><details><summary class="mono" style="font-size:11px;color:var(--faint);cursor:pointer;margin-bottom:10px">market rules</summary><div class="rules" id="betR"></div></details>
+  <div class="bchart" id="betC"></div><div class="kv" id="betKV"></div><ul class="steps" id="betSteps"></ul><details><summary class="mono" style="font-size:11px;color:var(--faint);cursor:pointer;margin-bottom:10px">market rules</summary><div class="rules" id="betR"></div></details>
   <button class="gob pink" id="betGo">place bet</button></div></div>
+<div class="modal side" id="mProp"><div class="mbox" id="propBox"></div></div>
+<div class="modal" id="mProf"><div class="mbox" style="width:min(640px,100%)" id="profBox"></div></div>
+<div id="pops"></div>
 <div class="modal" id="mPal"><div class="mbox" style="width:min(620px,100%)"><input id="palq" placeholder="search props, markets, commands…" autocomplete="off"><div id="palr"></div></div></div>
 <div class="modal" id="mShare"><div class="mbox" style="width:min(560px,100%)"><button class="x" data-x>×</button><h3>Share your call</h3><p class="sub">post it before it hits</p><canvas id="card" width="1200" height="675"></canvas><div class="row2"><button class="gob" id="dl">download</button><a class="gob pink" id="tw" target="_blank" rel="noopener" style="display:grid;place-items:center">post on X</a></div></div></div>
 <div id="mp"><div><h4>CALL PLACED!</h4><p id="mpT"></p></div></div>
