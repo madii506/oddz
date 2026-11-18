@@ -1,0 +1,1224 @@
+{
+"v": 1,
+"game": "2026-11-19",
+"cats": [
+{
+"id": "story",
+"name": "Story & endings",
+"color": "#ff3fa4",
+"s": "Settled from the game: a story cutscene, the ending, or the GTA VI wiki once the ending is public."
+},
+{
+"id": "crew",
+"name": "Characters & cameos",
+"color": "#b07bff",
+"s": "Settled from the game: a story cutscene or a clear in-game reference, shown on video."
+},
+{
+"id": "secrets",
+"name": "Secrets & Easter eggs",
+"color": "#2fe0a8",
+"s": "Settled when a clear video of it in the retail game is posted by the date. No mods, no edits."
+},
+{
+"id": "rides",
+"name": "Rides & guns",
+"color": "#19d3e8",
+"s": "Settled from the retail game (story mode), shown on video."
+},
+{
+"id": "streams",
+"name": "Streamers & speedruns",
+"color": "#ffc65a",
+"s": "Settled from the stream VOD, TwitchTracker / StreamsCharts, or speedrun.com."
+},
+{
+"id": "records",
+"name": "Sales & records",
+"color": "#ff8a3d",
+"s": "Settled from Take-Two / Rockstar statements, Metacritic, Circana, or the market close."
+},
+{
+"id": "music",
+"name": "Music",
+"color": "#ff6f91",
+"s": "Settled from Spotify / Billboard charts."
+},
+{
+"id": "online",
+"name": "Online, PC & DLC",
+"color": "#7ab8ff",
+"s": "Settled from an official Rockstar or Take-Two announcement."
+},
+{
+"id": "launch",
+"name": "Launch week",
+"color": "#e8e1ff",
+"s": "Settled from Rockstar / PlayStation / Xbox status pages, Downdetector, or official posts."
+}
+],
+"props": [
+{
+"id": "ST01",
+"c": "story",
+"q": "Does Jason die in the story?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST02",
+"c": "story",
+"q": "Does Lucia die in the story?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST03",
+"c": "story",
+"q": "Do Jason and Lucia both survive the main ending?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST04",
+"c": "story",
+"q": "Can you choose between endings?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST05",
+"c": "story",
+"q": "Does Jason betray Lucia, or Lucia betray Jason, in the main story?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST06",
+"c": "story",
+"q": "Does the final mission take place in Vice City?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST07",
+"c": "story",
+"q": "Is the final mission a heist?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST08",
+"c": "story",
+"q": "Does the story have a prison break mission?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST09",
+"c": "story",
+"q": "Does the story jump forward in time (a time skip)?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST10",
+"c": "story",
+"q": "Do Jason and Lucia get married in the story?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST11",
+"c": "story",
+"q": "Is there a post-credits scene?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST12",
+"c": "story",
+"q": "Does a main character end the story behind bars?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST13",
+"c": "story",
+"q": "Does the story leave Leonida for a mission?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST14",
+"c": "story",
+"q": "Do you rob a casino in the story?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST15",
+"c": "story",
+"q": "Does a hurricane hit during the story?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST16",
+"c": "story",
+"q": "Is the main villain a cop or a federal agent?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST17",
+"c": "story",
+"q": "Is there a playable flashback to Lucia in prison?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST18",
+"c": "story",
+"q": "Is there a third playable character?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST19",
+"c": "story",
+"q": "Does the story end on a cliffhanger for a sequel or DLC?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST20",
+"c": "story",
+"q": "Does the opening line of the trailer (\"Bonnie and Clyde\") get said in the story?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST21",
+"c": "story",
+"q": "How many endings does the story have?",
+"o": [
+"1",
+"2",
+"3",
+"4 or more"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST22",
+"c": "story",
+"q": "How many story missions are there?",
+"o": [
+"Under 70",
+"70 to 89",
+"90 to 109",
+"110 or more"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "ST23",
+"c": "story",
+"q": "Main story length on HowLongToBeat on Dec 1?",
+"o": [
+"Under 40h",
+"40 to 59h",
+"60 to 79h",
+"80h or more"
+],
+"closes": "2026-11-19T18:00:00Z",
+"s": "Settled from HowLongToBeat's \"Main Story\" average on Dec 1, 2026."
+},
+{
+"id": "ST24",
+"c": "story",
+"q": "Who gets the final shot of the main ending?",
+"o": [
+"Jason",
+"Lucia",
+"Both",
+"Neither"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR01",
+"c": "crew",
+"q": "Does Cal Hampton die in the story?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR02",
+"c": "crew",
+"q": "Does Raul Bautista betray the crew?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR03",
+"c": "crew",
+"q": "Does Brian Heder die in the story?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR04",
+"c": "crew",
+"q": "Does Boobie Ike survive the story?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR05",
+"c": "crew",
+"q": "Does Dre'Quan Priest survive the story?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR06",
+"c": "crew",
+"q": "Does a GTA V protagonist (Michael, Franklin or Trevor) appear?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR07",
+"c": "crew",
+"q": "Does Trevor Philips appear?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR08",
+"c": "crew",
+"q": "Does Lester Crest appear or get named?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR09",
+"c": "crew",
+"q": "Does Tommy Vercetti appear or get named?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR10",
+"c": "crew",
+"q": "Is CJ (Carl Johnson) referenced?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR11",
+"c": "crew",
+"q": "Is Niko Bellic referenced?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR12",
+"c": "crew",
+"q": "Is a Red Dead Redemption character referenced?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR13",
+"c": "crew",
+"q": "Does Lazlow appear?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR14",
+"c": "crew",
+"q": "Does a real celebrity appear as themselves?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "CR15",
+"c": "crew",
+"q": "Who is the final boss of the story?",
+"o": [
+"A cartel boss",
+"A cop / fed",
+"A crew member",
+"Someone else"
+],
+"closes": "2026-11-19T18:00:00Z"
+},
+{
+"id": "SE01",
+"c": "secrets",
+"q": "Bigfoot found by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE02",
+"c": "secrets",
+"q": "A UFO or aliens found by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE03",
+"c": "secrets",
+"q": "A jetpack found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE04",
+"c": "secrets",
+"q": "A ghost found by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE05",
+"c": "secrets",
+"q": "A hidden Rockstar developer room found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE06",
+"c": "secrets",
+"q": "A Mount Chiliad-style mystery confirmed by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE07",
+"c": "secrets",
+"q": "A secret ending found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE08",
+"c": "secrets",
+"q": "The Space Docker found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE09",
+"c": "secrets",
+"q": "A giant \"boss\" alligator found by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE10",
+"c": "secrets",
+"q": "An Easter egg for GTA: Vice City (2002) found by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE11",
+"c": "secrets",
+"q": "An Easter egg for Red Dead Redemption 2 found by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE12",
+"c": "secrets",
+"q": "A working cheat code found by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE13",
+"c": "secrets",
+"q": "A money glitch in story mode found by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE14",
+"c": "secrets",
+"q": "A playable arcade machine found by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE15",
+"c": "secrets",
+"q": "A Bully 2 tease found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE16",
+"c": "secrets",
+"q": "A hidden reference to the 2022 leak found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE17",
+"c": "secrets",
+"q": "A Half-Life 3 joke found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "SE18",
+"c": "secrets",
+"q": "A mermaid or sea monster found by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "RI01",
+"c": "rides",
+"q": "Is there a flying car in story mode?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI02",
+"c": "rides",
+"q": "Can you drive a tank in story mode?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI03",
+"c": "rides",
+"q": "Can you pilot a submarine?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI04",
+"c": "rides",
+"q": "Is the minigun in story mode?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI05",
+"c": "rides",
+"q": "Does the railgun return?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI06",
+"c": "rides",
+"q": "Is the Infernus in the game?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI07",
+"c": "rides",
+"q": "Can you add hydraulics to a lowrider?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI08",
+"c": "rides",
+"q": "Is there a monster truck?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI09",
+"c": "rides",
+"q": "Can you buy a yacht in story mode?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI10",
+"c": "rides",
+"q": "Is there a fighter jet you can fly in story mode?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI11",
+"c": "rides",
+"q": "Can you ride a horse?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI12",
+"c": "rides",
+"q": "Is there a crossbow?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI13",
+"c": "rides",
+"q": "Can you fly a blimp?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI14",
+"c": "rides",
+"q": "Is there a golf cart?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "RI15",
+"c": "rides",
+"q": "Most expensive car in story mode costs…",
+"o": [
+"Under $2M",
+"$2M to $4.9M",
+"$5M or more"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "TV01",
+"c": "streams",
+"q": "Kai Cenat finishes the story by Nov 24?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z",
+"s": "Settled from Kai Cenat's stream: the credits roll on stream by Nov 24, 23:59 ET."
+},
+{
+"id": "TV02",
+"c": "streams",
+"q": "Kai Cenat finishes the story by Nov 28?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z",
+"s": "Settled from Kai Cenat's stream: the credits roll on stream by Nov 28, 23:59 ET."
+},
+{
+"id": "TV03",
+"c": "streams",
+"q": "Peak Twitch viewers in the GTA VI category, launch week?",
+"o": [
+"Under 3M",
+"3M to 4.9M",
+"5M to 6.9M",
+"7M or more"
+],
+"closes": "2026-11-19T04:00:00Z",
+"s": "Settled from TwitchTracker / StreamsCharts, Nov 19 to Nov 25."
+},
+{
+"id": "TV04",
+"c": "streams",
+"q": "Biggest single GTA VI stream peak, launch week?",
+"o": [
+"Under 500K",
+"500K to 999K",
+"1M to 1.9M",
+"2M or more"
+],
+"closes": "2026-11-19T04:00:00Z",
+"s": "Settled from StreamsCharts / TwitchTracker, any platform they track."
+},
+{
+"id": "TV05",
+"c": "streams",
+"q": "GTA VI is the #1 Twitch category by hours watched on Nov 20?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "TV06",
+"c": "streams",
+"q": "Does xQc stream GTA VI in launch week?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T04:00:00Z"
+},
+{
+"id": "TV07",
+"c": "streams",
+"q": "Does IShowSpeed stream GTA VI in launch week?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T04:00:00Z"
+},
+{
+"id": "TV08",
+"c": "streams",
+"q": "Does MrBeast post a GTA VI video by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-21T00:00:00Z"
+},
+{
+"id": "TV09",
+"c": "streams",
+"q": "A streamer is banned on Twitch while playing GTA VI in launch week?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+},
+{
+"id": "TV10",
+"c": "streams",
+"q": "First 100% completion posted by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "TV11",
+"c": "streams",
+"q": "Any% world record on speedrun.com on Dec 31?",
+"o": [
+"Under 5h",
+"5h to 6h59",
+"7h to 8h59",
+"9h or more",
+"No board yet"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "TV12",
+"c": "streams",
+"q": "A GTA VI YouTube video (not Rockstar) passes 50M views by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "RE01",
+"c": "records",
+"q": "Take-Two or Rockstar announce $1B in sales within 3 days?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z",
+"s": "Settled from an official Take-Two / Rockstar statement dated by Nov 22."
+},
+{
+"id": "RE02",
+"c": "records",
+"q": "Take-Two or Rockstar announce 25M+ copies sold by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-25T00:00:00Z"
+},
+{
+"id": "RE03",
+"c": "records",
+"q": "GTA VI officially called the biggest launch in entertainment history by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-25T00:00:00Z"
+},
+{
+"id": "RE04",
+"c": "records",
+"q": "Metacritic critic score (PS5) on Dec 1?",
+"o": [
+"98 or lower",
+"99",
+"100"
+],
+"closes": "2026-11-25T00:00:00Z",
+"s": "Settled from Metacritic's PS5 page on Dec 1, 2026."
+},
+{
+"id": "RE05",
+"c": "records",
+"q": "Metacritic user score (PS5) on Dec 1?",
+"o": [
+"Under 7.0",
+"7.0 to 7.9",
+"8.0 to 8.9",
+"9.0 or more"
+],
+"closes": "2026-11-21T00:00:00Z",
+"s": "Settled from Metacritic's PS5 page on Dec 1, 2026."
+},
+{
+"id": "RE06",
+"c": "records",
+"q": "GTA VI wins Game of the Year at The Game Awards 2026?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z",
+"s": "Settled from The Game Awards 2026 show."
+},
+{
+"id": "RE07",
+"c": "records",
+"q": "TTWO closes Nov 19 higher than its Nov 18 close?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T14:30:00Z",
+"s": "Settled from the Nasdaq close on Nov 19, 2026."
+},
+{
+"id": "RE08",
+"c": "records",
+"q": "TTWO closes Dec 31 higher than its Nov 18 close?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-25T00:00:00Z",
+"s": "Settled from the Nasdaq close on Dec 31, 2026."
+},
+{
+"id": "RE09",
+"c": "records",
+"q": "PS5 is the best-selling console in the US for November (Circana)?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-25T00:00:00Z"
+},
+{
+"id": "RE10",
+"c": "records",
+"q": "GTA VI is the best-selling game of 2026 in the US (Circana)?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-25T00:00:00Z"
+},
+{
+"id": "MU01",
+"c": "music",
+"q": "A GTA VI soundtrack song enters the Spotify Global Top 50 by Dec 1?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-22T00:00:00Z"
+},
+{
+"id": "MU02",
+"c": "music",
+"q": "\"GTA VI: The Album\" debuts at #1 on the Billboard 200?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-22T00:00:00Z"
+},
+{
+"id": "MU03",
+"c": "music",
+"q": "A song from \"GTA VI: The Album\" reaches the Billboard Hot 100 top 10 by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-22T00:00:00Z"
+},
+{
+"id": "ON01",
+"c": "online",
+"q": "GTA VI Online launches by Mar 31, 2027?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "ON02",
+"c": "online",
+"q": "A PC release date is announced by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "ON03",
+"c": "online",
+"q": "GTA VI comes out on PC in 2027?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "ON04",
+"c": "online",
+"q": "A story DLC is announced by Jun 30, 2027?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "ON05",
+"c": "online",
+"q": "Rockstar releases another GTA VI trailer by Dec 31?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "ON06",
+"c": "online",
+"q": "A Nintendo Switch 2 version is announced by Jun 30, 2027?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "ON07",
+"c": "online",
+"q": "GTA V Online gets a shutdown date announced by Jun 30, 2027?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "ON08",
+"c": "online",
+"q": "The GTA VI PC date is announced at The Game Awards 2026?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-12-01T00:00:00Z"
+},
+{
+"id": "LA01",
+"c": "launch",
+"q": "PlayStation Network has a major outage on Nov 19?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T04:00:00Z"
+},
+{
+"id": "LA02",
+"c": "launch",
+"q": "Xbox Live has a major outage on Nov 19?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T04:00:00Z"
+},
+{
+"id": "LA03",
+"c": "launch",
+"q": "Rockstar puts out a second patch (after day one) by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "LA04",
+"c": "launch",
+"q": "Rockstar confirms a save-breaking bug by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "LA05",
+"c": "launch",
+"q": "Rockstar posts an official apology about the launch by Nov 30?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-20T00:00:00Z"
+},
+{
+"id": "LA06",
+"c": "launch",
+"q": "Physical copies are reported sold out at a major US retailer on Nov 19?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T04:00:00Z"
+},
+{
+"id": "LA07",
+"c": "launch",
+"q": "\"GTA 6\" is the #1 Google search in the US on Nov 19 (Google Trends)?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T04:00:00Z"
+},
+{
+"id": "LA08",
+"c": "launch",
+"q": "A PS5 Pro bundle sells out in the US by Nov 25?",
+"o": [
+"Yes",
+"No"
+],
+"closes": "2026-11-19T12:00:00Z"
+}
+]
+}
