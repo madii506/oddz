@@ -12,7 +12,7 @@ module.exports = async (req, res) => { try {
     for (const l of lists) if (l.status === 'fulfilled') for (const e of (l.value && l.value.data) || []) { if (!e || !e.eventId || seen.has(e.eventId) || !ok(e) || !e.isActive) continue;
       const m = (e.metadata || {}); seen.set(e.eventId, { id: e.eventId, title: (m.title || '').replace(/\s+\?$/, '?').trim(), slug: m.slug || null, img: m.imageUrl || null, closes: m.closeTime || null,
         vol: usd(e.volumeUsd), vol24: usd(e.volume24hr), cat: e.category || null,
-        markets: (e.markets || []).filter(k => k.status === 'open').map(k => { const pr = k.pricing || {}; return { id: k.marketId, title: k.title, status: k.status, closes: k.closeTime ? k.closeTime * 1000 : null,
+        markets: (e.markets || []).filter(k => k.status === 'open').map(k => { const pr = k.pricing || {}; let tok = k.clobTokenIds; if (typeof tok === 'string') { try { tok = JSON.parse(tok); } catch (_) { tok = null; } } return { id: k.marketId, tok: Array.isArray(tok) ? String(tok[0]) : null, title: k.title, status: k.status, closes: k.closeTime ? k.closeTime * 1000 : null,
           yes: usd(pr.buyYesPriceUsd), no: usd(pr.buyNoPriceUsd), sellYes: usd(pr.sellYesPriceUsd), sellNo: usd(pr.sellNoPriceUsd), vol: pr.volume || null, rules: (k.rulesPrimary || '').slice(0, 900) }; })
           .sort((a, b) => (b.yes || 0) - (a.yes || 0)) }); }
     const events = [...seen.values()].filter(e => e.markets.length).sort((a, b) => (b.vol || 0) - (a.vol || 0));

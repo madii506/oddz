@@ -25,14 +25,17 @@ const put = (path, data) => B().put(path, JSON.stringify(data), { access: 'publi
 const b64 = s => Buffer.from(s, 'utf8').toString('base64url'), unb64 = s => { try { return Buffer.from(s, 'base64url').toString('utf8'); } catch (_) { return ''; } };
 function parseCall(p) { const m = p.match(/^c\/([A-Z]{2}\d{2})\/(\d+)-([1-9A-HJ-NP-Za-km-z]{32,44})-(\d+)\.json$/); return m && BY[m[1]] && { id: m[1], oi: +m[2], wallet: m[3], ts: +m[4] }; }
 function parseSet(p) { const m = p.match(/^s\/([A-Z]{2}\d{2})\/(\d+)-(\d+|V|L|U)-([A-Za-z0-9_-]*)\.json$/); return m && BY[m[1]] && { id: m[1], ts: +m[2], r: m[3], src: unb64(m[4]) }; }
+// x/<wallet>/<ts>-<ST01.0_SE02.1>.json       a parlay: 2 to 5 legs, all must hit
+function parseParlay(p) { const m = p.match(/^x\/([1-9A-HJ-NP-Za-km-z]{32,44})\/(\d+)-((?:[A-Z]{2}\d{2}\.\d+_?){2,5})\.json$/); if (!m) return null; const legs = m[3].split('_').filter(Boolean).map(x => { const [id, oi] = x.split('.'); return { id, oi: +oi }; }); return legs.every(l => BY[l.id] && l.oi < BY[l.id].o.length) && { wallet: m[1], ts: +m[2], legs }; }
+const parlayMsg = (legs, ts) => `oddz parlay\nlegs: ${legs.map(l => l.id + '=' + BY[l.id].o[l.oi]).join(' | ')}\ntime: ${ts}`;
 const callMsg = (id, pick, ts) => `oddz call\nprop: ${id}\npick: ${pick}\ntime: ${ts}`;
 const setMsg = (id, label, src, ts) => `oddz settle\nprop: ${id}\nresult: ${label}\nsource: ${src || '-'}\ntime: ${ts}`;
 // everything the board needs, in one cached read
 async function state() { return cached('state', 6000, async () => {
-  if (!hasStore()) return { store: false, calls: [], sets: {} };
-  const [cp, sp] = await Promise.all([listAll('c/'), listAll('s/')]);
-  const calls = cp.map(parseCall).filter(Boolean);
+  if (!hasStore()) return { store: false, calls: [], sets: {}, parlays: [] };
+  const [cp, sp, xp] = await Promise.all([listAll('c/'), listAll('s/'), listAll('x/')]);
+  const calls = cp.map(parseCall).filter(Boolean), parlays = xp.map(parseParlay).filter(Boolean);
   const sets = {}; for (const s of sp.map(parseSet).filter(Boolean).sort((a, b) => a.ts - b.ts)) {
     const cur = sets[s.id] || {}; if (s.r === 'L') cur.lock = s.ts; else if (s.r === 'U') delete cur.lock; else if (s.r === 'V') { cur.r = 'void'; cur.src = s.src; cur.at = s.ts; } else { cur.r = +s.r; cur.src = s.src; cur.at = s.ts; } sets[s.id] = cur; }
-  return { store: true, calls, sets }; }, false); }
-module.exports = { PROPS, BY, cached, bust, getJSON, send, body, B58, verify, ADMIN, B, hasStore, put, b64, state, callMsg, setMsg };
+  return { store: true, calls, sets, parlays }; }, false); }
+module.exports = { PROPS, BY, cached, bust, getJSON, send, body, B58, verify, ADMIN, B, hasStore, put, b64, state, callMsg, setMsg, parlayMsg };
