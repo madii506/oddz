@@ -96,13 +96,13 @@ html.term .th{transition-delay:.2s}html.term .tick{transition-delay:.28s}html.te
 .empty{padding:28px 20px;text-align:center;font:600 13px JB;color:var(--faint)}
 .up{color:var(--yes)}.dn{color:var(--no)}
 /* ---- board: categories + prop cards */
-.bwrap{display:grid;grid-template-columns:240px 1fr;gap:12px;height:100%}
+.bwrap{display:grid;grid-template-columns:240px minmax(0,1fr);gap:12px;height:100%}
 .cats{padding:12px;display:flex;flex-direction:column;gap:4px;overflow:auto}
 .cat{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;font:700 13.5px RB;color:var(--dim);text-align:left}
 .cat:hover{background:rgba(255,246,242,.05);color:var(--paper)}.cat.on{background:rgba(255,246,242,.1);color:var(--paper)}
 .cat i{width:9px;height:9px;border-radius:50%;flex:none}.cat span{flex:1}.cat em{font:700 11px JB;font-style:normal;color:var(--faint)}
 .cats hr{border:0;border-top:1px solid var(--line);margin:8px 4px}
-.bmain{display:flex;flex-direction:column;min-height:0}
+.bmain{display:flex;flex-direction:column;min-height:0;min-width:0}
 .bbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
 .srch{flex:1;min-width:180px;height:38px;padding:0 14px;border-radius:999px;background:rgba(7,4,14,.6);border:1px solid var(--line);outline:0;font:500 13px JB}
 .grid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px;overflow:auto;padding-bottom:16px;align-content:start}.bmain>.bbar,.bmain>.rail,.bmain>.chead{flex:none}
@@ -194,7 +194,7 @@ html.term .th{transition-delay:.2s}html.term .tick{transition-delay:.28s}html.te
 /* ---- v2: rail, category head, stars, hot, parlay dock, drawer, profiles, sparks, pops */
 .sel{height:30px;border-radius:999px;border:1px solid var(--line);background:rgba(7,4,14,.6);padding:0 10px;font:800 10.5px JB;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);outline:0}
 .chip.pm{border-color:rgba(255,198,90,.45);color:var(--gold)}.chip.pm.on{background:var(--gold);color:var(--ink);border-color:var(--gold)}
-.rail{display:flex;gap:8px;overflow-x:auto;margin:-2px 0 12px;padding-bottom:2px;scrollbar-width:none}.rail::-webkit-scrollbar{display:none}
+.rail{display:flex;gap:8px;overflow-x:auto;min-width:0;max-width:100%;margin:-2px 0 12px;padding-bottom:2px;scrollbar-width:none}.rail::-webkit-scrollbar{display:none}
 .rc{flex:none;display:flex;align-items:center;gap:10px;height:40px;padding:0 14px 0 10px;border-radius:12px;background:rgba(255,198,90,.07);border:1px solid rgba(255,198,90,.25);font:600 12.5px RB;white-space:nowrap;max-width:360px}
 .rc b{font:800 11px JB;color:var(--gold);flex:none}.rc span{overflow:hidden;text-overflow:ellipsis}.rc:hover{background:rgba(255,198,90,.14)}
 .rail .rl{flex:none;align-self:center;font:800 10px JB;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;padding-right:4px}
@@ -232,7 +232,7 @@ html:not(.term) #pops{display:none}
 /* ================= responsive ================= */
 @media (max-width:1500px){.tab{padding:0 11px;font-size:10.5px}.clk{display:none}}
 @media (max-width:1180px){.strip{grid-template-columns:repeat(3,1fr)}.lgrid{grid-template-columns:1fr 1fr}.lgrid .pnl:first-child{grid-column:1/-1;max-height:300px}}
-@media (max-width:980px){.th{grid-template-columns:auto 1fr}.th .tabs{grid-column:1/-1;grid-row:2;overflow-x:auto;justify-self:stretch}.thr{grid-column:2;grid-row:1}
+@media (max-width:980px){.bwrap{grid-template-columns:minmax(0,1fr)}.th{grid-template-columns:auto 1fr}.th .tabs{grid-column:1/-1;grid-row:2;overflow-x:auto;justify-self:stretch}.thr{grid-column:2;grid-row:1}
   .bwrap{grid-template-columns:1fr;grid-template-rows:auto 1fr}.cats{flex-direction:row;overflow-x:auto;padding:8px}.cat{white-space:nowrap;padding:8px 12px}.cats hr{display:none}
   .two-col,.how{grid-template-columns:1fr}.desk-row{grid-template-columns:60px 1fr;}.desk-row>*:nth-child(n+3){grid-column:1/-1}}
 @media (max-width:760px){html,body{overflow:hidden}.th{padding-top:12px;gap:10px}.brand{font-size:24px}.wal{height:36px;font-size:11px;padding:0 12px}
