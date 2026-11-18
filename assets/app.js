@@ -27,7 +27,7 @@ function clock() { const n = zonesLive(), us = unlockAt(-5), now = Date.now();
   if (S.tab === 'live') renderZones(); if (S.tab === 'board' && clock.k++ % 30 === 0) { renderGrid(); renderRail(); } }
 clock.k = 1;
 // ---------------------------------------------------------------- state
-const S = { tab: 'board', cat: 'all', f: 'all', q: '', sort: 'close', rs: 'vol', props: [], cats: [], byId: {}, board: null, real: null, news: [], wallet: null, prov: null, pos: null, bet: null, call: null, legs: [], pmode: false, hist: {}, lastSeen: 0,
+const S = { coins: null, ts: 'mcap', tq: '', tab: 'board', cat: 'all', f: 'all', q: '', sort: 'close', rs: 'vol', props: [], cats: [], byId: {}, board: null, real: null, news: [], wallet: null, prov: null, pos: null, bet: null, call: null, legs: [], pmode: false, hist: {}, lastSeen: 0,
   star: (() => { try { return new Set(JSON.parse(store.get('oddz:star') || '[]')); } catch (_) { return new Set(); } })() };
 const saveStar = () => store.set('oddz:star', JSON.stringify([...S.star]));
 // ---------------------------------------------------------------- loading: one line, nothing else
@@ -44,7 +44,7 @@ $('#enter').onclick = openTerm; $('#toHome').onclick = openHome; $('#hconn').onc
 const TABS = () => $$('.tab').filter(t => !t.hidden).map(t => t.dataset.t);
 function tab(t) { if (!TABS().includes(t)) return; S.tab = t; $$('.tab').forEach(b => b.classList.toggle('on', b.dataset.t === t)); $$('.pane').forEach(p => p.classList.toggle('on', p.id === 'p-' + t)); render(); }
 $$('.tab').forEach(b => b.onclick = () => tab(b.dataset.t));
-function render() { ({ board: () => { renderCats(); renderRail(); renderGrid(); renderDock(); }, real: renderReal, live: renderLive, slip: renderSlip, leaders: renderLeaders, how: renderHow, desk: renderDesk })[S.tab]?.(); }
+function render() { ({ board: () => { renderCats(); renderRail(); renderGrid(); renderDock(); }, real: renderReal, trenches: renderTrenches, live: renderLive, slip: renderSlip, leaders: renderLeaders, how: renderHow, desk: renderDesk })[S.tab]?.(); }
 // ---------------------------------------------------------------- props + their state
 const set = id => S.board?.sets?.[id];
 function status(p) { const s = set(p.id), now = Date.now(), c = Date.parse(p.closes);
@@ -103,6 +103,26 @@ function spark(h, w = 300, ht = 34, big) { if (!h || h.length < 2) return ''; co
   return `<svg class="spark" viewBox="0 0 ${w} ${ht}" preserveAspectRatio="none"><polyline points="0,${ht} ${pts} ${w},${ht}" fill="${col}22" stroke="none"/><polyline points="${pts}" fill="none" stroke="${col}" stroke-width="${big ? 2 : 1.6}" vector-effect="non-scaling-stroke"/></svg>`; }
 let sparkBusy = false; async function loadSparks() { if (sparkBusy) return; sparkBusy = true; try { const els = $$('#real [data-tok]').filter(el => !S.hist[el.dataset.tok]).slice(0, 24);
   for (let i = 0; i < els.length; i += 4) await Promise.all(els.slice(i, i + 4).map(async el => { const t = el.dataset.tok; try { const j = await api(`/api/hist?t=${t}&i=1w`); S.hist[t] = j.h || []; $$(`#real [data-tok="${t}"]`).forEach(x => x.innerHTML = spark(S.hist[t])); } catch (_) { S.hist[t] = []; } })); } finally { sparkBusy = false; } }
+// ---------------------------------------------------------------- the trenches: every real GTA coin on Solana, with pump.fun one click away
+const pct = v => v == null ? '—' : (v >= 0 ? '+' : '') + (+v).toFixed(Math.abs(v) >= 100 ? 0 : 1) + '%';
+const cls = v => v == null ? '' : v >= 0 ? 'up' : 'dn';
+const isPump = c => c.pad === 'pump.fun' || /pump$/.test(c.mint);
+function heat(c) { const v = Math.max(Math.abs(c.ch24h || 0), Math.abs(c.ch1h || 0) * 4); return v >= 120 ? 5 : v >= 60 ? 4 : v >= 30 ? 3 : v >= 15 ? 2 : v >= 5 ? 1 : 0; }
+const wanted = c => `<span class="wanted" title="wanted level: how wild it moves">${[0, 1, 2, 3, 4].map(i => `<i class="${i < heat(c) ? 'on' : ''}">★</i>`).join('')}</span>`;
+const age = t => { if (!t) return '—'; const s = (Date.now() - Date.parse(t)) / 1e3; return s < 3600 ? (s / 60 | 0) + 'm' : s < 86400 ? (s / 3600 | 0) + 'h' : (s / 86400 | 0) + 'd'; };
+async function loadCoins() { try { const j = await api('/api/coins'); S.coins = { list: j.coins || [], error: null }; } catch (e) { S.coins = { list: S.coins?.list || [], error: e.message }; } $('#nTr').textContent = S.coins.list.length || '—'; if (S.tab === 'trenches') renderTrenches(); }
+function renderTrenches() { const C = S.coins; const box = $('#coins'); if (!C) { box.innerHTML = '<div class="empty">loading the trenches…</div>'; return; }
+  const all = C.list; $('#trSum').innerHTML = `<span><b>${all.length || '—'}</b>GTA coins</span><span><b>${all.length ? money(all.reduce((a, c) => a + c.mcap, 0)) : '—'}</b>combined</span><span><b>${all.length ? money(all.reduce((a, c) => a + c.vol24h, 0)) : '—'}</b>24h volume</span><span><b>${all.filter(c => (c.ch24h || 0) > 0).length}/${all.length || 0}</b>green today</span>`;
+  if (C.error && !all.length) { box.innerHTML = `<div class="empty">Couldn't reach Jupiter right now (${esc(C.error)}). Retrying…</div>`; return; }
+  const q = S.tq.trim().toLowerCase(); let L = all.filter(c => !q || c.name.toLowerCase().includes(q) || c.symbol.toLowerCase().includes(q) || c.mint.toLowerCase().startsWith(q)); if (S.ts === 'pump') L = L.filter(isPump);
+  const by = { mcap: c => c.mcap, h24: c => c.ch24h ?? -1e9, h1: c => c.ch1h ?? -1e9, vol: c => c.vol24h, holders: c => c.holders, new: c => Date.parse(c.created || 0), pump: c => c.mcap }[S.ts]; L = [...L].sort((a, b) => by(b) - by(a));
+  box.innerHTML = L.length ? `<table class="tbl ctbl"><tr><th>coin</th><th>wanted</th><th>market cap</th><th>1h</th><th>24h</th><th>volume 24h</th><th>holders</th><th>age</th><th></th></tr>${L.map(c => `<tr><td><div class="cn">${c.icon ? `<img src="${esc(c.icon)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=ph>${esc((c.symbol || '?')[0])}</div>'">` : `<div class="ph">${esc((c.symbol || '?')[0])}</div>`}<div><b>${esc(c.name)}${isPump(c) ? '<span class="pfb">PUMP</span>' : ''}</b><small>$${esc(c.symbol)}</small></div></div></td>
+    <td class="hm">${wanted(c)}</td><td><b>${money(c.mcap)}</b></td><td class="${cls(c.ch1h)} hm">${pct(c.ch1h)}</td><td class="${cls(c.ch24h)}">${pct(c.ch24h)}</td><td class="hm">${money(c.vol24h)}</td><td class="hm">${(c.holders || 0).toLocaleString()}</td><td class="hm">${age(c.created)}</td>
+    <td><div class="acts">${isPump(c) ? `<a class="sbtn pf" href="https://pump.fun/coin/${esc(c.mint)}" target="_blank" rel="noopener">pump.fun</a>` : `<a class="sbtn pf" href="https://jup.ag/swap/SOL-${esc(c.mint)}" target="_blank" rel="noopener">trade</a>`}<a class="sbtn" href="https://dexscreener.com/solana/${esc(c.mint)}" target="_blank" rel="noopener">chart</a><button class="sbtn" data-ca="${esc(c.mint)}">copy CA</button></div></td></tr>`).join('')}</table>` : '<div class="empty">No coins match.</div>';
+  $$('#coins [data-ca]').forEach(b => b.onclick = () => { navigator.clipboard?.writeText(b.dataset.ca); toast('contract copied'); }); }
+$$('#p-trenches [data-ts]').forEach(c => c.onclick = () => { S.ts = c.dataset.ts; $$('#p-trenches [data-ts]').forEach(x => x.classList.toggle('on', x === c)); renderTrenches(); });
+$('#tq').oninput = e => { S.tq = e.target.value; renderTrenches(); };
+$('#trProps').onclick = () => { tab('board'); S.cat = 'trenches'; S.f = 'all'; renderCats(); renderGrid(); };
 // ---------------------------------------------------------------- live: zones, wire, calls
 function renderZones() { const now = Date.now(); $('#zones').innerHTML = ZONES.map(([n, c, off]) => { const t = unlockAt(off), live = now >= t, soon = !live && t - now < 3 * 3600e3;
   return `<div class="zone ${live ? 'live' : soon ? 'soon' : ''}"><b>${esc(n)}</b><span>${live ? '● live · ' + ago(t) + ' ago' : 'in ' + dur(t - now)}</span><small>${esc(c)} · ${new Date(t).toLocaleString([], { weekday: 'short', hour: '2-digit', minute: '2-digit' })} your time</small></div>`; }).join('') +
@@ -248,7 +268,7 @@ async function closePos(pk, how) { try { const j = how === 'sell' ? await jfetch
 // ---------------------------------------------------------------- ⌘K palette
 let palItems = [], palSel = 0;
 function pal() { $('#mPal').classList.add('on'); const q = $('#palq'); q.value = ''; palList(''); setTimeout(() => q.focus(), 30); }
-function palList(q) { q = q.toLowerCase().trim(); const tabsI = [['props', 'board'], ['real money', 'real'], ['live', 'live'], ['my slip', 'slip'], ['leaderboard', 'leaders'], ['how it works', 'how']].map(([n, t]) => ({ k: 'tab', n, go: () => tab(t) }));
+function palList(q) { q = q.toLowerCase().trim(); const tabsI = [['props', 'board'], ['real money', 'real'], ['trenches', 'trenches'], ['live', 'live'], ['my slip', 'slip'], ['leaderboard', 'leaders'], ['how it works', 'how']].map(([n, t]) => ({ k: 'tab', n, go: () => tab(t) }));
   const props = S.props.map(p => ({ k: p.id, n: p.q, go: () => { tab('board'); openProp(p.id); } }));
   const mk = (S.real?.events || []).map(e => ({ k: 'real', n: e.title, go: () => tab('real') }));
   const cmds = [{ k: 'cmd', n: 'connect wallet', go: () => connect() }, { k: 'cmd', n: 'back to the street', go: openHome }];
@@ -261,7 +281,7 @@ $('#palq').onkeydown = e => { if (e.key === 'ArrowDown' || e.key === 'ArrowUp') 
 const HELP = 'call <id> <answer> · open <id> · star <id> · parlay · hot · bet <#> yes|no <usd> · find <text> · cat <story|crew|secrets|rides|streams|records|music|online|launch> · props · real · live · slip · leaders · how · connect · home';
 const hist = []; let hi = -1;
 function run(line) { const a = line.trim().split(/\s+/), c0 = (a[0] || '').toLowerCase(), out = m => $('#cmdO').textContent = m; if (!c0) return; hist.unshift(line); hi = -1;
-  const T = { props: 'board', board: 'board', real: 'real', money: 'real', live: 'live', slip: 'slip', mine: 'slip', leaders: 'leaders', leaderboard: 'leaders', how: 'how', help2: 'how', desk: 'desk' };
+  const T = { trenches: 'trenches', coins: 'trenches', pump: 'trenches', props: 'board', board: 'board', real: 'real', money: 'real', live: 'live', slip: 'slip', mine: 'slip', leaders: 'leaders', leaderboard: 'leaders', how: 'how', help2: 'how', desk: 'desk' };
   if (c0 === 'help' || c0 === '?') return out(HELP); if (T[c0]) { tab(T[c0]); return out('→ ' + c0); } if (c0 === 'home') { openHome(); return; } if (c0 === 'connect') { connect(); return; }
   if (c0 === 'find') { tab('board'); S.q = a.slice(1).join(' '); $('#q').value = S.q; renderGrid(); return out(filtered().length + ' props'); }
   if (c0 === 'cat') { const c = S.cats.find(x => x.id.startsWith((a[1] || '').toLowerCase())); if (!c) return out('unknown category'); tab('board'); S.cat = c.id; renderCats(); renderGrid(); return out('→ ' + c.name); }
@@ -318,4 +338,4 @@ async function openProfile(w) { const box = $('#profBox'); closeModals(); box.in
     $('[data-x]', box).onclick = closeModals; bindLinks(box); } catch (e) { box.innerHTML = `<button class="x" data-x>×</button><h3>${esc(short(w))}</h3><p class="sub">${esc(e.message)}</p>`; $('[data-x]', box).onclick = closeModals; } }
 // ---------------------------------------------------------------- go
 (async () => { try { await loadProps(); } catch (e) { toast('could not load props', 1); } dataOk = true; progress(); renderCats(); renderGrid(); renderStrip(); clock(); setInterval(clock, 1000);
-  loadBoard(); loadReal(); loadNews(); setInterval(loadBoard, 15000); setInterval(loadReal, 30000); setInterval(loadNews, 600000); setInterval(() => { if (S.wallet) loadPos(); }, 60000); })();
+  loadBoard(); loadReal(); loadNews(); loadCoins(); setInterval(loadCoins, 45000); setInterval(loadBoard, 15000); setInterval(loadReal, 30000); setInterval(loadNews, 600000); setInterval(() => { if (S.wallet) loadPos(); }, 60000); })();
